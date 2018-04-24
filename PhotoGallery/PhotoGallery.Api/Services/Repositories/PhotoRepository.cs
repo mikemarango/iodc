@@ -26,10 +26,11 @@ namespace PhotoGallery.Api.Services.Repositories
             return context.Photos.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public Task AddPhotoAsync(Photo photo)
+        public async Task AddPhotoAsync(Photo photo)
         {
             context.Photos.Add(photo);
-            return context.SaveChangesAsync();
+            //context.Entry(photo).State = EntityState.Added;
+            await Task.FromResult(context.SaveChangesAsync());
         }
 
         public Task UpdatePhotoAsync(Photo photo)

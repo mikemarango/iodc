@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,15 @@ namespace PhotoGallery.Api
                 options.UseSqlServer(Configuration.GetConnectionString("defaultConnection"),
                 b => b.MigrationsAssembly("PhotoGallery.Data")));
             services.AddScoped<IPhotoRepository, PhotoRepository>();
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = Configuration.GetConnectionString("identityServerUri");
+                    options.RequireHttpsMetadata = true;
+                    options.ApiName = "photogallery.api";
+                    options.ApiSecret = "dcf84a90-98cf-48ec-af8b-50cb1f42d51b";
+                });
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +67,7 @@ namespace PhotoGallery.Api
                 config.CreateMap<PhotoCreateDto, Photo>();
                 config.CreateMap<PhotoUpdateDto, Photo>();
             });
+            app.UseAuthentication();
 
             app.UseMvc();
         }

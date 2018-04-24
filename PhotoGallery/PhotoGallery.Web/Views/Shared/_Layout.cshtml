@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PhotoGallery.Web</title>
+    <title>@ViewData["Title"] - Photo Gallery</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,13 +26,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">PhotoGallery.Web</a>
+                <a asp-area="" asp-controller="Photos" asp-action="Index" class="navbar-brand">Photo Gallery</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Photos" asp-action="Index">Photo</a></li>
+                    <li><a asp-area="" asp-controller="Photos" asp-action="Create">Upload</a></li>
+                    @if (User.IsInRole("PayingUser"))
+                    {
+                        <li><a asp-area="" asp-controller="Photos" asp-action="Order">Place Order</a></li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Photos" asp-action="Logout">Logout</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -44,7 +51,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - PhotoGallery.Web</p>
+            <p>&copy; 2018 - Photo Gallery</p>
         </footer>
     </div>
 

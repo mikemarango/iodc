@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace PhotoGallery.Api.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
+    [Authorize]
     public class PhotosController : Controller
     {
         private readonly IPhotoRepository repository;
@@ -59,15 +61,22 @@ namespace PhotoGallery.Api.Controllers
 
             var fileName = $"{Guid.NewGuid().ToString()}.jpg";
 
-            var filePath = Path.Combine($"{webRootPath}/image/{fileName}");
+            var filePath = Path.Combine($"{webRootPath}/photos/{fileName}");
 
-            await System.IO.File.WriteAllBytesAsync(fileName, photoCreateDto.Bytes);
+            await System.IO.File.WriteAllBytesAsync(filePath, photoCreateDto.Bytes);
 
             photo.FileName = fileName;
 
             await repository.AddPhotoAsync(photo);
 
-            var photoDto = Mapper.Map<PhotoDto>(photo);
+            //var photoDto = Mapper.Map<PhotoDto>(photo);
+
+            var photoDto = new PhotoDto()
+            {
+                Id = photo.Id,
+                Title = photo.Title,
+                FileName = photo.FileName
+            };
 
             return CreatedAtRoute("Get", new { id = photoDto.Id }, photoDto);
         }

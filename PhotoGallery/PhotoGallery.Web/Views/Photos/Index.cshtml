@@ -1,0 +1,24 @@
+﻿@model PhotosViewModel
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Photos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container-fluid">
+    @foreach (var photo in Model.Photos)
+    {
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img style="width:100%" src="@("https://localhost:44367/photos/" + photo.FileName)" />
+                <div class="caption">
+                    <div class="h5">@photo.Title</div>
+                    <a asp-action="Edit" asp-controller="Photos" asp-route-id="@photo.Id">Edit Title</a> |
+                    <a asp-action="Delete" asp-controller="Photos" asp-route-id="@photo.Id">Delete Image</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
