@@ -94,7 +94,15 @@ namespace PhotoGallery.Web.Controllers
         // GET: Photos/Edit/5
         public async Task<IActionResult> Edit(Guid id)
         {
+            if (id == null)
+            {
+                return View();
+            }
             var photo = await photoService.GetPhotoAsync(id);
+
+            if (photo == null)
+                return RedirectToAction("AccessDenied", "Account");
+
             var editPhotoViewModel = new EditPhotoViewModel()
             {
                 Id = photo.Id,

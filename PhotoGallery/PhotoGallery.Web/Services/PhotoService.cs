@@ -51,7 +51,10 @@ namespace PhotoGallery.Web.Services
         {
             var httpClient = await GetClient();
             var response = await httpClient.GetAsync($"api/photos/{id}");
-            if (response.StatusCode == HttpStatusCode.NotFound) return null;
+            if (response.StatusCode == HttpStatusCode.NotFound)
+                return null;
+            if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
+                return null;
             response.EnsureSuccessStatusCode();
             var photo = await response.Content.ReadAsAsync<Photo>();
             return photo;

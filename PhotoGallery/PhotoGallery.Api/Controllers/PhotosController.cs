@@ -31,7 +31,9 @@ namespace PhotoGallery.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAsync()
         {
-            var photos = await repository.GetPhotosAsync();
+            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+            //var photos = await repository.GetPhotosAsync();
+            var photos = await repository.GetPhotosAsync(ownerId);
             var photoDto = Mapper.Map<IEnumerable<PhotoDto>>(photos);
             return Ok(photoDto);
         }
@@ -39,6 +41,9 @@ namespace PhotoGallery.Api.Controllers
         [HttpGet("{id}", Name = "Get")]
         public async Task<IActionResult> GetAsync(Guid id)
         {
+            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+            if (!await repository.IsOwnersPhoto(id, ownerId))
+                return Forbid();
             if (id == null) return BadRequest();
             var photo = await repository.GetPhotoAsync(id);
             if (photo == null) return NotFound();

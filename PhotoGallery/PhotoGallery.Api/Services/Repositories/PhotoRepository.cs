@@ -1,9 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using PhotoGallery.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace PhotoGallery.Api.Services.Repositories
 {
@@ -11,7 +15,7 @@ namespace PhotoGallery.Api.Services.Repositories
     {
         private readonly ApplicationContext context;
 
-        public PhotoRepository(ApplicationContext context)
+        public PhotoRepository(ApplicationContext context, IHostingEnvironment environment)
         {
             this.context = context;
         }
@@ -19,6 +23,13 @@ namespace PhotoGallery.Api.Services.Repositories
         public Task<List<Photo>> GetPhotosAsync()
         {
             return context.Photos.ToListAsync();
+        }
+
+        public Task<List<Photo>> GetPhotosAsync(string ownerId)
+        {
+            return context.Photos
+                .Where(i => i.OwnerId == ownerId)
+                .OrderBy(i => i.Title).ToListAsync();
         }
 
         public Task<Photo> GetPhotoAsync(Guid id)
@@ -43,6 +54,11 @@ namespace PhotoGallery.Api.Services.Repositories
         {
             context.Photos.Remove(photo);
             return context.SaveChangesAsync();
+        }
+
+        public Task<bool> IsOwnersPhoto(Guid id, string ownerId)
+        {
+            return context.Photos.AnyAsync(i => i.Id == id && i.OwnerId == ownerId);
         }
     }
 }
