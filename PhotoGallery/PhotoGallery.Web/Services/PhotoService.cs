@@ -108,6 +108,15 @@ namespace PhotoGallery.Web.Services
             return accessToken;
         }
 
+        public async Task DeletePhotoAsync(Guid id)
+        {
+            var httpClient = await GetClient();
+            var response = await httpClient.DeleteAsync($"api/photos/{id}");
+            if (response.StatusCode != HttpStatusCode.NoContent)
+                return;
+            response.EnsureSuccessStatusCode();
+        }
+
         private async Task<string> RenewTokens()
         {
             var currentContext = contextAccessor.HttpContext;

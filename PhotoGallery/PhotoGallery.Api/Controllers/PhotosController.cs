@@ -90,6 +90,11 @@ namespace PhotoGallery.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(Guid id, [FromBody]PhotoUpdateDto photoUpdateDto)
         {
+            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+
+            if (!await repository.IsOwnersPhoto(id, ownerId))
+                return Forbid();
+
             if (photoUpdateDto == null) return BadRequest();
 
             if (!ModelState.IsValid)
@@ -112,8 +117,15 @@ namespace PhotoGallery.Api.Controllers
         {
             if (id == null) return BadRequest();
 
+            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+
+            if (!await repository.IsOwnersPhoto(id, ownerId))
+                return Forbid();
+
             var photo = await repository.GetPhotoAsync(id);
+
             await repository.DeletePhoto(photo);
+
             return NoContent();
         }
     }

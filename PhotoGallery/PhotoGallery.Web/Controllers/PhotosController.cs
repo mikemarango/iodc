@@ -131,27 +131,22 @@ namespace PhotoGallery.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Photos/Delete/5
-        public ActionResult Delete(Guid id)
-        {
-            return View();
-        }
+        //// GET: Photos/Delete/5
+        //public ActionResult Delete(Guid id)
+        //{
+        //    return View();
+        //}
 
         // POST: Photos/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id, IFormCollection collection)
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(Guid id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            if (id == null) return View();
+            
+            await photoService.DeletePhotoAsync(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         public async Task Logout()
