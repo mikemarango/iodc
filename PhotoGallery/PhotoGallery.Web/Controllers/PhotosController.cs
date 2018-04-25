@@ -153,6 +153,7 @@ namespace PhotoGallery.Web.Controllers
 
         public async Task Logout()
         {
+            await photoService.RevokeTokensAsync();
             await HttpContext.SignOutAsync("Cookies");
             await HttpContext.SignOutAsync("oidc");
         }

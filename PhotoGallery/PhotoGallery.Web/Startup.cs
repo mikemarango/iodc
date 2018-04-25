@@ -61,6 +61,7 @@ namespace PhotoGallery.Web
                 options.Scope.Add("photogallery.api");
                 options.Scope.Add("subscriptionlevel");
                 options.Scope.Add("country");
+                options.Scope.Add("offline_access");
                 options.ResponseType = "code id_token";
                 options.SaveTokens = true;
                 options.GetClaimsFromUserInfoEndpoint = true;

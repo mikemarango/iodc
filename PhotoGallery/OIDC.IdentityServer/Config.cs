@@ -58,13 +58,19 @@ namespace OIDC.IdentityServer
                     AllowedGrantTypes = GrantTypes.Hybrid,
                     ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
 
+                    AccessTokenType = AccessTokenType.Reference,
+                    AccessTokenLifetime = 120,
+
                     RedirectUris = { "https://localhost:44309/signin-oidc" },
                     FrontChannelLogoutUri = "https://localhost:44309/signout-oidc",
                     PostLogoutRedirectUris = { "https://localhost:44309/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
                     AllowedScopes = { "openid", "profile", "address", "roles", "photogallery.api", "subscriptionlevel", "country" },
-                    AlwaysIncludeUserClaimsInIdToken = true
+                    AlwaysIncludeUserClaimsInIdToken = true,
+
+                    UpdateAccessTokenClaimsOnRefresh = true,
+
                 },
 
                 // SPA client using implicit flow

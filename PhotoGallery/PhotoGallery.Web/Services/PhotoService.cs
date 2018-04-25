@@ -114,6 +114,52 @@ namespace PhotoGallery.Web.Services
             return await Task.FromResult(httpClient);
         }
 
+        public async Task RevokeTokensAsync()
+        {
+            var discoveryClient = new DiscoveryClient(configuration.GetConnectionString("identityServerUri"));
+            var metaDataResponse = await discoveryClient.GetAsync();
+
+            var revocationClient = 
+                new TokenRevocationClient(metaDataResponse.RevocationEndpoint,
+                "photogallery.web",
+                "49C1A7E1-0C79-4A89-A3D6-A37998FB86B0");
+
+            await RevokeAccessToken(revocationClient);
+            await RevokeRefreshToken(revocationClient);
+        }
+
+        private async Task RevokeRefreshToken(TokenRevocationClient revocationClient)
+        {
+            // get refresh token
+            var refreshToken = await contextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+
+            if (!string.IsNullOrWhiteSpace(refreshToken))
+            {
+                // revoke refresh token
+                var revokeRefreshTokenResponse = await revocationClient.RevokeRefreshTokenAsync(refreshToken);
+                if (revokeRefreshTokenResponse.IsError)
+                {
+                    throw new Exception("Error occurred during revocation of refresh token", revokeRefreshTokenResponse.Exception);
+                }
+            }
+        }
+
+        private async Task RevokeAccessToken(TokenRevocationClient revocationClient)
+        {
+            // get access token
+            var accessToken = await contextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
+
+            if (!string.IsNullOrWhiteSpace(accessToken))
+            {
+                // revoke access token
+                var revokeAccessTokenResponse = await revocationClient.RevokeAccessTokenAsync(accessToken);
+                if (revokeAccessTokenResponse.IsError)
+                {
+                    throw new Exception("Error occurred during revocation of access token", revokeAccessTokenResponse.Exception);
+                }
+            }
+        }
+
         private async Task<string> GetValidAccessToken()
         {
             var currentContext = contextAccessor.HttpContext;
@@ -149,6 +195,7 @@ namespace PhotoGallery.Web.Services
                 };
 
                 var expiresAt = DateTime.UtcNow + TimeSpan.FromSeconds(tokenResult.ExpiresIn);
+
                 tokens.Add(new AuthenticationToken { Name = "expires_at", Value = expiresAt.ToString("o", CultureInfo.InvariantCulture) });
 
                 // store tokens and sign in with renewed tokens
