@@ -157,10 +157,11 @@ namespace PhotoGallery.Web.Controllers
             await HttpContext.SignOutAsync("oidc");
         }
 
-        [Authorize(Roles = "PayingUser")]
-        public async Task<IActionResult> Order([FromServices]DiscoveryClient discoveryClient)
+        //[Authorize(Roles = "PayingUser")]
+        [Authorize(Policy = "CanOrderFrame")]
+        public async Task<IActionResult> Order()
         {
-            var address = await photoService.GetAddressAsync(discoveryClient);
+            var address = await photoService.GetAddressAsync();
             return View(new OrderPhotoViewModel(address));
         }
 

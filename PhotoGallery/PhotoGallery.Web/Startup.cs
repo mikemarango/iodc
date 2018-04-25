@@ -59,6 +59,8 @@ namespace PhotoGallery.Web
                 options.Scope.Add("address");
                 options.Scope.Add("roles");
                 options.Scope.Add("photogallery.api");
+                options.Scope.Add("subscriptionlevel");
+                options.Scope.Add("country");
                 options.ResponseType = "code id_token";
                 options.SaveTokens = true;
                 options.GetClaimsFromUserInfoEndpoint = true;
@@ -97,6 +99,16 @@ namespace PhotoGallery.Web
                 };
             });
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("CanOrderFrame", policybuilder =>
+                {
+                    policybuilder.RequireAuthenticatedUser();
+                    policybuilder.RequireClaim("subscriptionlevel", "PayingUser");
+                    policybuilder.RequireClaim("country", "be");
+                });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //services.AddDbContextPool<ApplicationContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
@@ -107,10 +119,7 @@ namespace PhotoGallery.Web
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             });
-            services.AddHttpClient<DiscoveryClient>(disco =>
-            {
-                disco.BaseAddress = new Uri(Configuration.GetConnectionString("identityServerUri"));
-            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -16,7 +16,9 @@ namespace OIDC.IdentityServer
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 new IdentityResources.Address(),
-                new IdentityResource("roles", "Your role(s)", new[] { "role" })
+                new IdentityResource("roles", "Your role(s)", new[] { "role" }),
+                new IdentityResource("subscriptionlevel", "Your subscription level", new[] { "subscriptionlevel" }),
+                new IdentityResource("country", "Your country", new[] { "country" })
             };
         }
 
@@ -61,7 +63,7 @@ namespace OIDC.IdentityServer
                     PostLogoutRedirectUris = { "https://localhost:44309/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "address", "roles", "photogallery.api" },
+                    AllowedScopes = { "openid", "profile", "address", "roles", "photogallery.api", "subscriptionlevel", "country" },
                     AlwaysIncludeUserClaimsInIdToken = true
                 },
 

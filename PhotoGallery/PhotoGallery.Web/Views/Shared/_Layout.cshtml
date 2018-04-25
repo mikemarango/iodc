@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject IAuthorizationService AuthorizationService
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -35,7 +36,7 @@
                     {
                         <li><a asp-area="" asp-controller="Photos" asp-action="Create">Upload</a></li>
                     }
-                    @if (User.IsInRole("PayingUser"))
+                    @if ((await AuthorizationService.AuthorizeAsync(User, "CanOrderFrame")).Succeeded)
                     {
                         <li><a asp-area="" asp-controller="Photos" asp-action="Order">Place Order</a></li>
                     }

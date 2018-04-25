@@ -1,6 +1,7 @@
 ﻿using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Newtonsoft.Json;
@@ -88,8 +89,9 @@ namespace PhotoGallery.Web.Services
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task<string> GetAddressAsync(DiscoveryClient discoveryClient)
+        public async Task<string> GetAddressAsync()
         {
+            var discoveryClient = new DiscoveryClient(configuration.GetConnectionString("identityServerUri"));
             var metadataResponse = await discoveryClient.GetAsync();
             var userInfoClient = new UserInfoClient(metadataResponse.UserInfoEndpoint);
             var accessToken = await contextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);

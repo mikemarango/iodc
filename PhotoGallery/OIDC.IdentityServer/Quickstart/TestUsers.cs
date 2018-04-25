@@ -23,7 +23,9 @@ namespace IdentityServer4.Quickstart.UI
                     new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                     new Claim(JwtClaimTypes.WebSite, "http://frank.com"),
                     new Claim(JwtClaimTypes.Address, "One Main Road"),
-                    new Claim("role", "FreeUser")
+                    new Claim("role", "FreeUser"),
+                    new Claim("subscriptionlevel", "FreeUser"),
+                    new Claim("country", "nl")
                 }
             },
             new TestUser{SubjectId = "b7539694-97e7-4dfe-84da-b4256e1ff5c7", Username = "Claire", Password = "P@ssw0rd!",
@@ -36,7 +38,9 @@ namespace IdentityServer4.Quickstart.UI
                     new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                     new Claim(JwtClaimTypes.WebSite, "http://claire.com"),
                     new Claim(JwtClaimTypes.Address, "One Big Street"),
-                    new Claim("role", "PayingUser")
+                    new Claim("role", "PayingUser"),
+                    new Claim("subscriptionlevel", "PayingUser"),
+                    new Claim("country", "be")
                 }
             }
         };
