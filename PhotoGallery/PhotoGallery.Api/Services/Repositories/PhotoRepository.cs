@@ -56,9 +56,10 @@ namespace PhotoGallery.Api.Services.Repositories
             return context.SaveChangesAsync();
         }
 
-        public Task<bool> IsOwnersPhoto(Guid id, string ownerId)
+        public async Task<bool> IsOwnersPhoto(Guid id, string ownerId)
         {
-            return context.Photos.AnyAsync(i => i.Id == id && i.OwnerId == ownerId);
+            var photo = await context.Photos.AnyAsync(i => i.Id == id && i.OwnerId == ownerId);
+            return await Task.FromResult(photo);
         }
     }
 }

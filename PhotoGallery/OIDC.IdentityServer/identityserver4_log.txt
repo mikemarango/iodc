@@ -17864,3 +17864,1830 @@
 2018-04-25 02:27:15.998 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
 2018-04-25 02:27:15.998 -07:00 [INF] Profile service returned to the following claim types: name given_name family_name website address role subscriptionlevel country
 2018-04-25 02:27:15.998 -07:00 [DBG] End userinfo request
+2018-04-25 04:45:13.881 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-25 04:45:13.994 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-25 04:45:13.998 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-25 04:45:13.998 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-25 04:45:13.998 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-25 04:45:13.998 -07:00 [DBG] Using idsrv as default scheme for forbid
+2018-04-25 04:45:16.708 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 04:45:16.715 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 04:45:16.716 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 04:45:16.742 -07:00 [DBG] Start discovery request
+2018-04-25 04:45:17.169 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 04:45:17.170 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 04:45:17.170 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 04:45:17.173 -07:00 [DBG] Start key discovery request
+2018-04-25 04:45:17.340 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-25 04:45:17.345 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-25 04:45:17.345 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-25 04:45:17.350 -07:00 [DBG] Start authorize request
+2018-04-25 04:45:17.370 -07:00 [DBG] No user present in authorize request
+2018-04-25 04:45:17.395 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:45:17.439 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:45:17.440 -07:00 [DBG] No PKCE used.
+2018-04-25 04:45:17.509 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:45:17.545 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rQOKamsVcpbya8X6CUCQ64Wm_ZBiM6jKS8QtVrkB5ANT-PBEmTtQGRYCS_1vHoT7gGKxDMjziz6B8_IHBZRVSGVVbn-Q4OPND7fPLQkwrhM1qWM_D9SuXSEWc4h8RRRGKwfXP47QCAxYM6R79uE4PVoV2PIN5YXrr13aOaGD_QKi1v9TfeUTlCE8E32lQExC-yjioBSflg6qKys3wTh692Syko2CZgXDjMrlG6FebXWy1gawe45DV2u6UCUVBo8sk3quY8ClM8aE-Rnz0DQWdJtafQMP9AX6zu36r1nSWw3GM3D_ttMWcFrb9l1TSaVa2Y",
+  "Nonce": "636602535172818738.NjM3Mzc1ODUtYzVhNS00ZjhmLWJkZGEtMGYzM2RmMjE3OWYwZDNlZTk2YWQtOTM2Yi00M2MyLWE0Y2YtZjVjMDg1OTg0NGY4",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602535172818738.NjM3Mzc1ODUtYzVhNS00ZjhmLWJkZGEtMGYzM2RmMjE3OWYwZDNlZTk2YWQtOTM2Yi00M2MyLWE0Y2YtZjVjMDg1OTg0NGY4",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rQOKamsVcpbya8X6CUCQ64Wm_ZBiM6jKS8QtVrkB5ANT-PBEmTtQGRYCS_1vHoT7gGKxDMjziz6B8_IHBZRVSGVVbn-Q4OPND7fPLQkwrhM1qWM_D9SuXSEWc4h8RRRGKwfXP47QCAxYM6R79uE4PVoV2PIN5YXrr13aOaGD_QKi1v9TfeUTlCE8E32lQExC-yjioBSflg6qKys3wTh692Syko2CZgXDjMrlG6FebXWy1gawe45DV2u6UCUVBo8sk3quY8ClM8aE-Rnz0DQWdJtafQMP9AX6zu36r1nSWw3GM3D_ttMWcFrb9l1TSaVa2Y",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:45:17.554 -07:00 [INF] Showing login: User is not authenticated
+2018-04-25 04:45:17.684 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:45:17.684 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:45:17.684 -07:00 [DBG] No PKCE used.
+2018-04-25 04:45:17.685 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:45:39.389 -07:00 [DBG] CORS request made for path: /account/login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 04:45:39.610 -07:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "Claire",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "DisplayName": "Claire",
+  "Endpoint": "UI",
+  "ActivityId": "0HLDAK819KUSO:00000002",
+  "TimeStamp": "2018-04-25T11:45:39Z",
+  "ProcessId": 18996,
+  "LocalIpAddress": "127.0.0.1:12901",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:45:39.628 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 04:45:39.630 -07:00 [DBG] Adding idp claim with value: local
+2018-04-25 04:45:39.631 -07:00 [DBG] Adding amr claim with value: pwd
+2018-04-25 04:45:39.654 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 04:45:39.678 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 04:45:39.679 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 04:45:39.680 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 04:45:39.686 -07:00 [DBG] Start authorize callback request
+2018-04-25 04:45:39.697 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:45:39.697 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:45:39.697 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:45:39.697 -07:00 [DBG] No PKCE used.
+2018-04-25 04:45:39.698 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:45:39.698 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rQOKamsVcpbya8X6CUCQ64Wm_ZBiM6jKS8QtVrkB5ANT-PBEmTtQGRYCS_1vHoT7gGKxDMjziz6B8_IHBZRVSGVVbn-Q4OPND7fPLQkwrhM1qWM_D9SuXSEWc4h8RRRGKwfXP47QCAxYM6R79uE4PVoV2PIN5YXrr13aOaGD_QKi1v9TfeUTlCE8E32lQExC-yjioBSflg6qKys3wTh692Syko2CZgXDjMrlG6FebXWy1gawe45DV2u6UCUVBo8sk3quY8ClM8aE-Rnz0DQWdJtafQMP9AX6zu36r1nSWw3GM3D_ttMWcFrb9l1TSaVa2Y",
+  "Nonce": "636602535172818738.NjM3Mzc1ODUtYzVhNS00ZjhmLWJkZGEtMGYzM2RmMjE3OWYwZDNlZTk2YWQtOTM2Yi00M2MyLWE0Y2YtZjVjMDg1OTg0NGY4",
+  "SessionId": "4d0dd75d9c67018540f15e449337715f",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602535172818738.NjM3Mzc1ODUtYzVhNS00ZjhmLWJkZGEtMGYzM2RmMjE3OWYwZDNlZTk2YWQtOTM2Yi00M2MyLWE0Y2YtZjVjMDg1OTg0NGY4",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rQOKamsVcpbya8X6CUCQ64Wm_ZBiM6jKS8QtVrkB5ANT-PBEmTtQGRYCS_1vHoT7gGKxDMjziz6B8_IHBZRVSGVVbn-Q4OPND7fPLQkwrhM1qWM_D9SuXSEWc4h8RRRGKwfXP47QCAxYM6R79uE4PVoV2PIN5YXrr13aOaGD_QKi1v9TfeUTlCE8E32lQExC-yjioBSflg6qKys3wTh692Syko2CZgXDjMrlG6FebXWy1gawe45DV2u6UCUVBo8sk3quY8ClM8aE-Rnz0DQWdJtafQMP9AX6zu36r1nSWw3GM3D_ttMWcFrb9l1TSaVa2Y",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:45:39.699 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 04:45:39.716 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 04:45:39.717 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 04:45:39.717 -07:00 [INF] Showing consent: User has not yet consented
+2018-04-25 04:45:39.740 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:45:39.740 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:45:39.740 -07:00 [DBG] No PKCE used.
+2018-04-25 04:45:39.741 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:45:42.625 -07:00 [DBG] CORS request made for path: /consent from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 04:45:42.649 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:45:42.649 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:45:42.649 -07:00 [DBG] No PKCE used.
+2018-04-25 04:45:42.650 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:45:42.703 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 04:45:42.703 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 04:45:42.703 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 04:45:42.703 -07:00 [DBG] Start authorize callback request
+2018-04-25 04:45:42.707 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:45:42.707 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:45:42.707 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:45:42.707 -07:00 [DBG] No PKCE used.
+2018-04-25 04:45:42.708 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:45:42.708 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rQOKamsVcpbya8X6CUCQ64Wm_ZBiM6jKS8QtVrkB5ANT-PBEmTtQGRYCS_1vHoT7gGKxDMjziz6B8_IHBZRVSGVVbn-Q4OPND7fPLQkwrhM1qWM_D9SuXSEWc4h8RRRGKwfXP47QCAxYM6R79uE4PVoV2PIN5YXrr13aOaGD_QKi1v9TfeUTlCE8E32lQExC-yjioBSflg6qKys3wTh692Syko2CZgXDjMrlG6FebXWy1gawe45DV2u6UCUVBo8sk3quY8ClM8aE-Rnz0DQWdJtafQMP9AX6zu36r1nSWw3GM3D_ttMWcFrb9l1TSaVa2Y",
+  "Nonce": "636602535172818738.NjM3Mzc1ODUtYzVhNS00ZjhmLWJkZGEtMGYzM2RmMjE3OWYwZDNlZTk2YWQtOTM2Yi00M2MyLWE0Y2YtZjVjMDg1OTg0NGY4",
+  "SessionId": "4d0dd75d9c67018540f15e449337715f",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602535172818738.NjM3Mzc1ODUtYzVhNS00ZjhmLWJkZGEtMGYzM2RmMjE3OWYwZDNlZTk2YWQtOTM2Yi00M2MyLWE0Y2YtZjVjMDg1OTg0NGY4",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rQOKamsVcpbya8X6CUCQ64Wm_ZBiM6jKS8QtVrkB5ANT-PBEmTtQGRYCS_1vHoT7gGKxDMjziz6B8_IHBZRVSGVVbn-Q4OPND7fPLQkwrhM1qWM_D9SuXSEWc4h8RRRGKwfXP47QCAxYM6R79uE4PVoV2PIN5YXrr13aOaGD_QKi1v9TfeUTlCE8E32lQExC-yjioBSflg6qKys3wTh692Syko2CZgXDjMrlG6FebXWy1gawe45DV2u6UCUVBo8sk3quY8ClM8aE-Rnz0DQWdJtafQMP9AX6zu36r1nSWw3GM3D_ttMWcFrb9l1TSaVa2Y",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:45:42.708 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 04:45:42.708 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 04:45:42.708 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 04:45:42.719 -07:00 [INF] User consented to scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 04:45:42.733 -07:00 [DBG] User indicated to remember consent for scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 04:45:42.737 -07:00 [DBG] Client allows remembering consent, and consent given. Updating consent store for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:45:42.754 -07:00 [DBG] Creating Hybrid Flow response.
+2018-04-25 04:45:42.780 -07:00 [DBG] Creating Implicit Flow response.
+2018-04-25 04:45:42.798 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 04:45:42.805 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 04:45:42.807 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 04:45:42.913 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "hybrid",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****D-ug"
+    },
+    {
+      "TokenType": "code",
+      "TokenValue": "****1e7a"
+    }
+  ],
+  "ActivityId": "0HLDAK819KUSL:00000004",
+  "TimeStamp": "2018-04-25T11:45:42Z",
+  "ProcessId": 18996,
+  "LocalIpAddress": "127.0.0.1:12901",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:45:42.919 -07:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ClientId": "photogallery.web",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rQOKamsVcpbya8X6CUCQ64Wm_ZBiM6jKS8QtVrkB5ANT-PBEmTtQGRYCS_1vHoT7gGKxDMjziz6B8_IHBZRVSGVVbn-Q4OPND7fPLQkwrhM1qWM_D9SuXSEWc4h8RRRGKwfXP47QCAxYM6R79uE4PVoV2PIN5YXrr13aOaGD_QKi1v9TfeUTlCE8E32lQExC-yjioBSflg6qKys3wTh692Syko2CZgXDjMrlG6FebXWy1gawe45DV2u6UCUVBo8sk3quY8ClM8aE-Rnz0DQWdJtafQMP9AX6zu36r1nSWw3GM3D_ttMWcFrb9l1TSaVa2Y",
+  "Scope": "openid profile address roles subscriptionlevel country photogallery.api"
+}
+2018-04-25 04:45:42.945 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 04:45:42.945 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 04:45:43.128 -07:00 [DBG] Request path /connect/token matched to endpoint type Token
+2018-04-25 04:45:43.133 -07:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2018-04-25 04:45:43.133 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2018-04-25 04:45:43.143 -07:00 [DBG] Start token request.
+2018-04-25 04:45:43.151 -07:00 [DBG] Start client validation
+2018-04-25 04:45:43.159 -07:00 [DBG] Start parsing Basic Authentication secret
+2018-04-25 04:45:43.163 -07:00 [DBG] Start parsing for secret in post body
+2018-04-25 04:45:43.164 -07:00 [DBG] Parser found secret: PostBodySecretParser
+2018-04-25 04:45:43.164 -07:00 [DBG] Secret id found: photogallery.web
+2018-04-25 04:45:43.177 -07:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2018-04-25 04:45:43.177 -07:00 [DBG] Client validation success
+2018-04-25 04:45:43.184 -07:00 [INF] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "photogallery.web",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLDAK819KUSO:00000003",
+  "TimeStamp": "2018-04-25T11:45:43Z",
+  "ProcessId": 18996,
+  "LocalIpAddress": "127.0.0.1:12901",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:45:43.192 -07:00 [DBG] Start token request validation
+2018-04-25 04:45:43.206 -07:00 [DBG] Start validation of authorization code token request
+2018-04-25 04:45:43.226 -07:00 [DBG] IsActive called from: AuthorizationCodeValidation
+2018-04-25 04:45:43.226 -07:00 [DBG] Validation of authorization code token request success
+2018-04-25 04:45:43.233 -07:00 [INF] Token request validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "GrantType": "authorization_code",
+  "AuthorizationCode": "8e969892795b5fa057306d6d17257f6d91ccd9cd8000dcb1c16b196552381e7a",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "client_secret": "***REDACTED***",
+    "code": "8e969892795b5fa057306d6d17257f6d91ccd9cd8000dcb1c16b196552381e7a",
+    "grant_type": "authorization_code",
+    "redirect_uri": "https://localhost:44309/signin-oidc"
+  }
+}
+2018-04-25 04:45:43.264 -07:00 [DBG] Getting claims for access token for client: photogallery.web
+2018-04-25 04:45:43.264 -07:00 [DBG] Getting claims for access token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:45:43.265 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["role"] via ClaimsProviderAccessToken
+2018-04-25 04:45:43.265 -07:00 [DBG] Issued claims: ["role"]
+2018-04-25 04:45:43.272 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 04:45:43.272 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 04:45:43.272 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 04:45:43.279 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "Endpoint": "Token",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "authorization_code",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****Qc6g"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****1mhw"
+    }
+  ],
+  "ActivityId": "0HLDAK819KUSO:00000003",
+  "TimeStamp": "2018-04-25T11:45:43Z",
+  "ProcessId": 18996,
+  "LocalIpAddress": "127.0.0.1:12901",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:45:43.281 -07:00 [DBG] Token request success.
+2018-04-25 04:45:43.327 -07:00 [DBG] Request path /connect/userinfo matched to endpoint type Userinfo
+2018-04-25 04:45:43.328 -07:00 [DBG] Endpoint enabled: Userinfo, successfully created handler: IdentityServer4.Endpoints.UserInfoEndpoint
+2018-04-25 04:45:43.328 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.UserInfoEndpoint for /connect/userinfo
+2018-04-25 04:45:43.336 -07:00 [DBG] Start userinfo request
+2018-04-25 04:45:43.340 -07:00 [DBG] Bearer token found in header
+2018-04-25 04:45:43.370 -07:00 [DBG] IsActive called from: AccessTokenValidation
+2018-04-25 04:45:43.370 -07:00 [DBG] Calling into custom token validator: IdentityServer4.Validation.DefaultCustomTokenValidator
+2018-04-25 04:45:43.374 -07:00 [DBG] Token validation success
+{
+  "ValidateLifetime": true,
+  "AccessTokenType": "Jwt",
+  "ExpectedScope": "openid",
+  "Claims": {
+    "nbf": 1524656743,
+    "exp": 1524660343,
+    "iss": "https://localhost:44331",
+    "aud": [
+      "https://localhost:44331/resources",
+      "photogallery.api"
+    ],
+    "client_id": "photogallery.web",
+    "sub": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+    "auth_time": 1524656739,
+    "idp": "local",
+    "role": "PayingUser",
+    "scope": [
+      "openid",
+      "profile",
+      "address",
+      "roles",
+      "subscriptionlevel",
+      "country",
+      "photogallery.api"
+    ],
+    "amr": "pwd"
+  }
+}
+2018-04-25 04:45:43.375 -07:00 [DBG] IsActive called from: UserInfoRequestValidation
+2018-04-25 04:45:43.381 -07:00 [DBG] Creating userinfo response
+2018-04-25 04:45:43.387 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 04:45:43.390 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 04:45:43.393 -07:00 [DBG] Requested claim types: sub name family_name given_name middle_name nickname preferred_username profile picture website gender birthdate zoneinfo locale updated_at address role subscriptionlevel country
+2018-04-25 04:45:43.393 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 04:45:43.393 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["sub","name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via UserInfoEndpoint
+2018-04-25 04:45:43.393 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 04:45:43.393 -07:00 [INF] Profile service returned to the following claim types: name given_name family_name website address role subscriptionlevel country
+2018-04-25 04:45:43.394 -07:00 [DBG] End userinfo request
+2018-04-25 04:45:43.884 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 04:45:43.884 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 04:45:43.884 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 04:45:43.884 -07:00 [DBG] Start discovery request
+2018-04-25 04:45:44.040 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 04:45:44.040 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 04:45:44.040 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 04:45:44.040 -07:00 [DBG] Start key discovery request
+2018-04-25 04:46:04.790 -07:00 [DBG] Request path /connect/endsession matched to endpoint type Endsession
+2018-04-25 04:46:04.792 -07:00 [DBG] Endpoint enabled: Endsession, successfully created handler: IdentityServer4.Endpoints.EndSessionEndpoint
+2018-04-25 04:46:04.792 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.EndSessionEndpoint for /connect/endsession
+2018-04-25 04:46:04.800 -07:00 [DBG] Processing signout request for b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:46:04.808 -07:00 [DBG] Start end session request validation
+2018-04-25 04:46:04.815 -07:00 [DBG] Start identity token validation
+2018-04-25 04:46:04.815 -07:00 [DBG] Client found: photogallery.web / Photo Gallery
+2018-04-25 04:46:04.818 -07:00 [DBG] IsActive called from: IdentityTokenValidation
+2018-04-25 04:46:04.818 -07:00 [DBG] Calling into custom token validator: IdentityServer4.Validation.DefaultCustomTokenValidator
+2018-04-25 04:46:04.819 -07:00 [DBG] Token validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "ValidateLifetime": false,
+  "Claims": {
+    "nbf": 1524656743,
+    "exp": 1524657043,
+    "iss": "https://localhost:44331",
+    "aud": "photogallery.web",
+    "nonce": "636602535172818738.NjM3Mzc1ODUtYzVhNS00ZjhmLWJkZGEtMGYzM2RmMjE3OWYwZDNlZTk2YWQtOTM2Yi00M2MyLWE0Y2YtZjVjMDg1OTg0NGY4",
+    "iat": 1524656743,
+    "at_hash": "gcjQ9ezSzH1HTmW-l8lKVw",
+    "sid": "4d0dd75d9c67018540f15e449337715f",
+    "sub": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+    "auth_time": 1524656739,
+    "idp": "local",
+    "name": "Claire Underwood",
+    "given_name": "Claire",
+    "family_name": "Underwood",
+    "website": "http://claire.com",
+    "address": "One Big Street",
+    "role": "PayingUser",
+    "subscriptionlevel": "PayingUser",
+    "country": "be",
+    "amr": "pwd"
+  }
+}
+2018-04-25 04:46:04.826 -07:00 [INF] End session request validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "PostLogOutUri": "https://localhost:44309/signout-callback-oidc",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rST6886yxWDgferHAZ7zMW1kRl2JEjaUXfxOwMyZvnvVUrBCIyq2QtJsidskZCuPG7DfT0d3nTC6AhRJiO7KASN76ANzJm-3eO5iev2rFjRi6WYaBHyqzeiavfkRHCLO724BkKXYaaPv9r9YnpIexCf",
+  "Raw": {
+    "post_logout_redirect_uri": "https://localhost:44309/signout-callback-oidc",
+    "id_token_hint": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImU5YzFhNzYwZjRjZTFkYzcyODZjZTkzOGUxMWZmNmU2IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1MjQ2NTY3NDMsImV4cCI6MTUyNDY1NzA0MywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMzEiLCJhdWQiOiJwaG90b2dhbGxlcnkud2ViIiwibm9uY2UiOiI2MzY2MDI1MzUxNzI4MTg3MzguTmpNM016YzFPRFV0WXpWaE5TMDBaamhtTFdKa1pHRXRNR1l6TTJSbU1qRTNPV1l3WkRObFpUazJZV1F0T1RNMllpMDBNMk15TFdFMFkyWXRaalZqTURnMU9UZzBOR1k0IiwiaWF0IjoxNTI0NjU2NzQzLCJhdF9oYXNoIjoiZ2NqUTllelN6SDFIVG1XLWw4bEtWdyIsInNpZCI6IjRkMGRkNzVkOWM2NzAxODU0MGYxNWU0NDkzMzc3MTVmIiwic3ViIjoiYjc1Mzk2OTQtOTdlNy00ZGZlLTg0ZGEtYjQyNTZlMWZmNWM3IiwiYXV0aF90aW1lIjoxNTI0NjU2NzM5LCJpZHAiOiJsb2NhbCIsIm5hbWUiOiJDbGFpcmUgVW5kZXJ3b29kIiwiZ2l2ZW5fbmFtZSI6IkNsYWlyZSIsImZhbWlseV9uYW1lIjoiVW5kZXJ3b29kIiwid2Vic2l0ZSI6Imh0dHA6Ly9jbGFpcmUuY29tIiwiYWRkcmVzcyI6Ik9uZSBCaWcgU3RyZWV0Iiwicm9sZSI6IlBheWluZ1VzZXIiLCJzdWJzY3JpcHRpb25sZXZlbCI6IlBheWluZ1VzZXIiLCJjb3VudHJ5IjoiYmUiLCJhbXIiOlsicHdkIl19.n3qIx7EUtiysUIZ7FCWTo5tHAzRmnWzzIbynxU0V0Ao49DiJ7k2LPdeH7nLlM0v9ybO4mlJYTMGmrfH2Zcrhykp8TIOQFxtxOTNuzwbrG-QAzaOauua7PoLxwqEOQPJoUSbTrw3TzkSVTrpxYnm1Ul-_PVVLkyJK11tdLq47F__uTymT8U2HOJfxlo4adDPXd5c_QVe9XOc4a6o4dJ4MWnhYNGT0vVl8h4btYofZk7mtVgALO-mPfz8Kp3Ho2DkKKH_1zYrDmWjEvHqIw_dD6OPNAeIQQf7mWbfw-1wKLdhtyR492KNh5FXcwH2VBJ5ZUfhEdYDYrjAYvvOyoYQc6g",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rST6886yxWDgferHAZ7zMW1kRl2JEjaUXfxOwMyZvnvVUrBCIyq2QtJsidskZCuPG7DfT0d3nTC6AhRJiO7KASN76ANzJm-3eO5iev2rFjRi6WYaBHyqzeiavfkRHCLO724BkKXYaaPv9r9YnpIexCf",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:46:04.826 -07:00 [DBG] Success validating end session request from photogallery.web
+2018-04-25 04:46:04.895 -07:00 [INF] AuthenticationScheme: idsrv signed out.
+2018-04-25 04:46:04.903 -07:00 [INF] {
+  "Name": "User Logout Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1002,
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "DisplayName": "Claire",
+  "ActivityId": "0HLDAK819KUSL:00000005",
+  "TimeStamp": "2018-04-25T11:46:04Z",
+  "ProcessId": 18996,
+  "LocalIpAddress": "127.0.0.1:12901",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:46:05.072 -07:00 [DBG] Request path /connect/endsession/callback matched to endpoint type Endsession
+2018-04-25 04:46:05.073 -07:00 [DBG] Endpoint enabled: Endsession, successfully created handler: IdentityServer4.Endpoints.EndSessionCallbackEndpoint
+2018-04-25 04:46:05.074 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.EndSessionCallbackEndpoint for /connect/endsession/callback
+2018-04-25 04:46:05.079 -07:00 [DBG] Processing signout callback request
+2018-04-25 04:46:05.091 -07:00 [DBG] Client front-channel logout URLs: https://localhost:44309/signout-oidc?sid=4d0dd75d9c67018540f15e449337715f&iss=https%3A%2F%2Flocalhost%3A44331
+2018-04-25 04:46:05.091 -07:00 [DBG] No client back-channel logout URLs
+2018-04-25 04:46:05.091 -07:00 [INF] Successful signout callback.
+2018-04-25 04:46:05.091 -07:00 [DBG] Client front-channel iframe urls: ["https://localhost:44309/signout-oidc?sid=4d0dd75d9c67018540f15e449337715f&iss=https%3A%2F%2Flocalhost%3A44331"]
+2018-04-25 04:46:05.091 -07:00 [DBG] No client back-channel iframe urls
+2018-04-25 04:46:05.241 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-25 04:46:05.241 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-25 04:46:05.241 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-25 04:46:05.241 -07:00 [DBG] Start authorize request
+2018-04-25 04:46:05.242 -07:00 [DBG] No user present in authorize request
+2018-04-25 04:46:05.242 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:46:05.242 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:46:05.242 -07:00 [DBG] No PKCE used.
+2018-04-25 04:46:05.242 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:46:05.242 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rTIEyL2lXmpwJ2VaYXRSYxSgoSJ4g27H26DnvE_vS2SXR3qTsLwsW7nqIZ0DFN3PqHMq34A8O4xeJ0TxFomQm1Jju00V1S2vS9CbkTGX2LjC5HQKxpy1EtJ26IlTSC3li8aIBPy-WfnwQgGdcJQ6n8lT54fo4mLIKL3ZceXrdq1q2JIBp-dBSeWi3GSY00BTyx07nLdJGHDhU_90ndb8WPn02zkeIGh3K21s2yhojTZkp4aR7_Zmd2XiukeQXncoc3238SzDhBue4aobUact7Im1rzR1FmKmgxgGVlQmxrM0vbxl_tzeKC-mZIk2GDFKyk",
+  "Nonce": "636602535652334445.NTJlZWFjN2UtNjY5Yi00ZDEyLWFjMGEtNjNmYTVlYjZkODVmZWE2ZjkyNzctNzM4MS00YjYyLTkxZDMtMzk2Y2Y0ZDhkNzUy",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602535652334445.NTJlZWFjN2UtNjY5Yi00ZDEyLWFjMGEtNjNmYTVlYjZkODVmZWE2ZjkyNzctNzM4MS00YjYyLTkxZDMtMzk2Y2Y0ZDhkNzUy",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rTIEyL2lXmpwJ2VaYXRSYxSgoSJ4g27H26DnvE_vS2SXR3qTsLwsW7nqIZ0DFN3PqHMq34A8O4xeJ0TxFomQm1Jju00V1S2vS9CbkTGX2LjC5HQKxpy1EtJ26IlTSC3li8aIBPy-WfnwQgGdcJQ6n8lT54fo4mLIKL3ZceXrdq1q2JIBp-dBSeWi3GSY00BTyx07nLdJGHDhU_90ndb8WPn02zkeIGh3K21s2yhojTZkp4aR7_Zmd2XiukeQXncoc3238SzDhBue4aobUact7Im1rzR1FmKmgxgGVlQmxrM0vbxl_tzeKC-mZIk2GDFKyk",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:46:05.243 -07:00 [INF] Showing login: User is not authenticated
+2018-04-25 04:46:05.247 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:46:05.247 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:46:05.247 -07:00 [DBG] No PKCE used.
+2018-04-25 04:46:05.248 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:49:43.017 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-25 04:49:43.070 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-25 04:49:43.075 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-25 04:49:43.075 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-25 04:49:43.075 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-25 04:49:43.075 -07:00 [DBG] Using idsrv as default scheme for forbid
+2018-04-25 04:49:44.133 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 04:49:44.142 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 04:49:44.143 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 04:49:44.148 -07:00 [DBG] Start discovery request
+2018-04-25 04:49:44.333 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 04:49:44.334 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 04:49:44.334 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 04:49:44.338 -07:00 [DBG] Start key discovery request
+2018-04-25 04:49:44.467 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-25 04:49:44.474 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-25 04:49:44.474 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-25 04:49:44.481 -07:00 [DBG] Start authorize request
+2018-04-25 04:49:44.492 -07:00 [DBG] No user present in authorize request
+2018-04-25 04:49:44.497 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:49:44.512 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:49:44.513 -07:00 [DBG] No PKCE used.
+2018-04-25 04:49:44.553 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:49:44.566 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rSAaXyfysIRCY1i3t9K55UqfPXl4prXB7fkU3l5L3PFIcB0wJcSrWtRpx2Sz8D7F7zd1ln0Fzg_WQqNe9cJuwvCl1U4XzPL1opWLjFNsDpMUlZPCQ6ygZvzypoGHC9cufHWoqV6W642LQb783__9_VejrmixV0DQ9iocJwr7-PhZQs2ch0q7v_BkkylJzPYA3IIv0YGv32xMH7o4NnrGTnxZt_ZCxzIPQbZVIulxqR31tf59AZFSHjvIZm9qe4-ezJPKJ0DWFCl5zBJYacf8XUK43XJuF5pjrkFV9mpdYFTVfVeX4gIBPOyC3YXEbzJLI0",
+  "Nonce": "636602537844205957.YzBkMjlhMzAtZGQ2MC00NTNhLTlmMzItMDE1YTZmMmQyODVhMDZlZjVjM2QtMTMzOC00ZWY0LWE1YzktYTdkMjAyZGNjMWVh",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602537844205957.YzBkMjlhMzAtZGQ2MC00NTNhLTlmMzItMDE1YTZmMmQyODVhMDZlZjVjM2QtMTMzOC00ZWY0LWE1YzktYTdkMjAyZGNjMWVh",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rSAaXyfysIRCY1i3t9K55UqfPXl4prXB7fkU3l5L3PFIcB0wJcSrWtRpx2Sz8D7F7zd1ln0Fzg_WQqNe9cJuwvCl1U4XzPL1opWLjFNsDpMUlZPCQ6ygZvzypoGHC9cufHWoqV6W642LQb783__9_VejrmixV0DQ9iocJwr7-PhZQs2ch0q7v_BkkylJzPYA3IIv0YGv32xMH7o4NnrGTnxZt_ZCxzIPQbZVIulxqR31tf59AZFSHjvIZm9qe4-ezJPKJ0DWFCl5zBJYacf8XUK43XJuF5pjrkFV9mpdYFTVfVeX4gIBPOyC3YXEbzJLI0",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:49:44.575 -07:00 [INF] Showing login: User is not authenticated
+2018-04-25 04:49:44.652 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:49:44.652 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:49:44.652 -07:00 [DBG] No PKCE used.
+2018-04-25 04:49:44.653 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:50:26.986 -07:00 [DBG] CORS request made for path: /account/login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 04:50:27.064 -07:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "Claire",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "DisplayName": "Claire",
+  "Endpoint": "UI",
+  "ActivityId": "0HLDAKAHC8ABP:00000002",
+  "TimeStamp": "2018-04-25T11:50:27Z",
+  "ProcessId": 11844,
+  "LocalIpAddress": "127.0.0.1:17312",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:50:27.088 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 04:50:27.091 -07:00 [DBG] Adding idp claim with value: local
+2018-04-25 04:50:27.092 -07:00 [DBG] Adding amr claim with value: pwd
+2018-04-25 04:50:27.113 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 04:50:27.121 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 04:50:27.122 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 04:50:27.122 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 04:50:27.133 -07:00 [DBG] Start authorize callback request
+2018-04-25 04:50:27.140 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:50:27.140 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:50:27.140 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:50:27.140 -07:00 [DBG] No PKCE used.
+2018-04-25 04:50:27.140 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:50:27.140 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rSAaXyfysIRCY1i3t9K55UqfPXl4prXB7fkU3l5L3PFIcB0wJcSrWtRpx2Sz8D7F7zd1ln0Fzg_WQqNe9cJuwvCl1U4XzPL1opWLjFNsDpMUlZPCQ6ygZvzypoGHC9cufHWoqV6W642LQb783__9_VejrmixV0DQ9iocJwr7-PhZQs2ch0q7v_BkkylJzPYA3IIv0YGv32xMH7o4NnrGTnxZt_ZCxzIPQbZVIulxqR31tf59AZFSHjvIZm9qe4-ezJPKJ0DWFCl5zBJYacf8XUK43XJuF5pjrkFV9mpdYFTVfVeX4gIBPOyC3YXEbzJLI0",
+  "Nonce": "636602537844205957.YzBkMjlhMzAtZGQ2MC00NTNhLTlmMzItMDE1YTZmMmQyODVhMDZlZjVjM2QtMTMzOC00ZWY0LWE1YzktYTdkMjAyZGNjMWVh",
+  "SessionId": "c6ffad2af23006d5febb4d10730663f4",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602537844205957.YzBkMjlhMzAtZGQ2MC00NTNhLTlmMzItMDE1YTZmMmQyODVhMDZlZjVjM2QtMTMzOC00ZWY0LWE1YzktYTdkMjAyZGNjMWVh",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rSAaXyfysIRCY1i3t9K55UqfPXl4prXB7fkU3l5L3PFIcB0wJcSrWtRpx2Sz8D7F7zd1ln0Fzg_WQqNe9cJuwvCl1U4XzPL1opWLjFNsDpMUlZPCQ6ygZvzypoGHC9cufHWoqV6W642LQb783__9_VejrmixV0DQ9iocJwr7-PhZQs2ch0q7v_BkkylJzPYA3IIv0YGv32xMH7o4NnrGTnxZt_ZCxzIPQbZVIulxqR31tf59AZFSHjvIZm9qe4-ezJPKJ0DWFCl5zBJYacf8XUK43XJuF5pjrkFV9mpdYFTVfVeX4gIBPOyC3YXEbzJLI0",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:50:27.142 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 04:50:27.163 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 04:50:27.164 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 04:50:27.164 -07:00 [INF] Showing consent: User has not yet consented
+2018-04-25 04:50:27.187 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:50:27.187 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:50:27.188 -07:00 [DBG] No PKCE used.
+2018-04-25 04:50:27.188 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:50:29.899 -07:00 [DBG] CORS request made for path: /consent from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 04:50:29.917 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:50:29.918 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:50:29.918 -07:00 [DBG] No PKCE used.
+2018-04-25 04:50:29.918 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:50:29.937 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 04:50:29.938 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 04:50:29.938 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 04:50:29.938 -07:00 [DBG] Start authorize callback request
+2018-04-25 04:50:29.943 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:50:29.943 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 04:50:29.943 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 04:50:29.943 -07:00 [DBG] No PKCE used.
+2018-04-25 04:50:29.943 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 04:50:29.943 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rSAaXyfysIRCY1i3t9K55UqfPXl4prXB7fkU3l5L3PFIcB0wJcSrWtRpx2Sz8D7F7zd1ln0Fzg_WQqNe9cJuwvCl1U4XzPL1opWLjFNsDpMUlZPCQ6ygZvzypoGHC9cufHWoqV6W642LQb783__9_VejrmixV0DQ9iocJwr7-PhZQs2ch0q7v_BkkylJzPYA3IIv0YGv32xMH7o4NnrGTnxZt_ZCxzIPQbZVIulxqR31tf59AZFSHjvIZm9qe4-ezJPKJ0DWFCl5zBJYacf8XUK43XJuF5pjrkFV9mpdYFTVfVeX4gIBPOyC3YXEbzJLI0",
+  "Nonce": "636602537844205957.YzBkMjlhMzAtZGQ2MC00NTNhLTlmMzItMDE1YTZmMmQyODVhMDZlZjVjM2QtMTMzOC00ZWY0LWE1YzktYTdkMjAyZGNjMWVh",
+  "SessionId": "c6ffad2af23006d5febb4d10730663f4",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602537844205957.YzBkMjlhMzAtZGQ2MC00NTNhLTlmMzItMDE1YTZmMmQyODVhMDZlZjVjM2QtMTMzOC00ZWY0LWE1YzktYTdkMjAyZGNjMWVh",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rSAaXyfysIRCY1i3t9K55UqfPXl4prXB7fkU3l5L3PFIcB0wJcSrWtRpx2Sz8D7F7zd1ln0Fzg_WQqNe9cJuwvCl1U4XzPL1opWLjFNsDpMUlZPCQ6ygZvzypoGHC9cufHWoqV6W642LQb783__9_VejrmixV0DQ9iocJwr7-PhZQs2ch0q7v_BkkylJzPYA3IIv0YGv32xMH7o4NnrGTnxZt_ZCxzIPQbZVIulxqR31tf59AZFSHjvIZm9qe4-ezJPKJ0DWFCl5zBJYacf8XUK43XJuF5pjrkFV9mpdYFTVfVeX4gIBPOyC3YXEbzJLI0",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 04:50:29.943 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 04:50:29.943 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 04:50:29.944 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 04:50:29.955 -07:00 [INF] User consented to scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 04:50:29.968 -07:00 [DBG] User indicated to remember consent for scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 04:50:29.972 -07:00 [DBG] Client allows remembering consent, and consent given. Updating consent store for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:50:29.987 -07:00 [DBG] Creating Hybrid Flow response.
+2018-04-25 04:50:30.011 -07:00 [DBG] Creating Implicit Flow response.
+2018-04-25 04:50:30.022 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 04:50:30.029 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 04:50:30.031 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 04:50:30.091 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "hybrid",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****gPKA"
+    },
+    {
+      "TokenType": "code",
+      "TokenValue": "****c511"
+    }
+  ],
+  "ActivityId": "0HLDAKAHC8ABO:00000004",
+  "TimeStamp": "2018-04-25T11:50:30Z",
+  "ProcessId": 11844,
+  "LocalIpAddress": "127.0.0.1:17312",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:50:30.097 -07:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ClientId": "photogallery.web",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rSAaXyfysIRCY1i3t9K55UqfPXl4prXB7fkU3l5L3PFIcB0wJcSrWtRpx2Sz8D7F7zd1ln0Fzg_WQqNe9cJuwvCl1U4XzPL1opWLjFNsDpMUlZPCQ6ygZvzypoGHC9cufHWoqV6W642LQb783__9_VejrmixV0DQ9iocJwr7-PhZQs2ch0q7v_BkkylJzPYA3IIv0YGv32xMH7o4NnrGTnxZt_ZCxzIPQbZVIulxqR31tf59AZFSHjvIZm9qe4-ezJPKJ0DWFCl5zBJYacf8XUK43XJuF5pjrkFV9mpdYFTVfVeX4gIBPOyC3YXEbzJLI0",
+  "Scope": "openid profile address roles subscriptionlevel country photogallery.api"
+}
+2018-04-25 04:50:30.121 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 04:50:30.121 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 04:50:30.261 -07:00 [DBG] Request path /connect/token matched to endpoint type Token
+2018-04-25 04:50:30.265 -07:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2018-04-25 04:50:30.265 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2018-04-25 04:50:30.273 -07:00 [DBG] Start token request.
+2018-04-25 04:50:30.279 -07:00 [DBG] Start client validation
+2018-04-25 04:50:30.284 -07:00 [DBG] Start parsing Basic Authentication secret
+2018-04-25 04:50:30.288 -07:00 [DBG] Start parsing for secret in post body
+2018-04-25 04:50:30.289 -07:00 [DBG] Parser found secret: PostBodySecretParser
+2018-04-25 04:50:30.289 -07:00 [DBG] Secret id found: photogallery.web
+2018-04-25 04:50:30.299 -07:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2018-04-25 04:50:30.299 -07:00 [DBG] Client validation success
+2018-04-25 04:50:30.304 -07:00 [INF] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "photogallery.web",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLDAKAHC8ABP:00000003",
+  "TimeStamp": "2018-04-25T11:50:30Z",
+  "ProcessId": 11844,
+  "LocalIpAddress": "127.0.0.1:17312",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:50:30.311 -07:00 [DBG] Start token request validation
+2018-04-25 04:50:30.322 -07:00 [DBG] Start validation of authorization code token request
+2018-04-25 04:50:30.340 -07:00 [DBG] IsActive called from: AuthorizationCodeValidation
+2018-04-25 04:50:30.341 -07:00 [DBG] Validation of authorization code token request success
+2018-04-25 04:50:30.347 -07:00 [INF] Token request validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "GrantType": "authorization_code",
+  "AuthorizationCode": "ee0de7742936e66c51d23b8c6adf1d2df9fa3401b42bbce0d4b0a1655c0fc511",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "client_secret": "***REDACTED***",
+    "code": "ee0de7742936e66c51d23b8c6adf1d2df9fa3401b42bbce0d4b0a1655c0fc511",
+    "grant_type": "authorization_code",
+    "redirect_uri": "https://localhost:44309/signin-oidc"
+  }
+}
+2018-04-25 04:50:30.380 -07:00 [DBG] Getting claims for access token for client: photogallery.web
+2018-04-25 04:50:30.380 -07:00 [DBG] Getting claims for access token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 04:50:30.381 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["role"] via ClaimsProviderAccessToken
+2018-04-25 04:50:30.381 -07:00 [DBG] Issued claims: ["role"]
+2018-04-25 04:50:30.387 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 04:50:30.387 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 04:50:30.387 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 04:50:30.393 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "Endpoint": "Token",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "authorization_code",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****jdJg"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****ff1w"
+    }
+  ],
+  "ActivityId": "0HLDAKAHC8ABP:00000003",
+  "TimeStamp": "2018-04-25T11:50:30Z",
+  "ProcessId": 11844,
+  "LocalIpAddress": "127.0.0.1:17312",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 04:50:30.394 -07:00 [DBG] Token request success.
+2018-04-25 04:50:30.423 -07:00 [DBG] Request path /connect/userinfo matched to endpoint type Userinfo
+2018-04-25 04:50:30.424 -07:00 [DBG] Endpoint enabled: Userinfo, successfully created handler: IdentityServer4.Endpoints.UserInfoEndpoint
+2018-04-25 04:50:30.424 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.UserInfoEndpoint for /connect/userinfo
+2018-04-25 04:50:30.434 -07:00 [DBG] Start userinfo request
+2018-04-25 04:50:30.440 -07:00 [DBG] Bearer token found in header
+2018-04-25 04:50:30.470 -07:00 [DBG] IsActive called from: AccessTokenValidation
+2018-04-25 04:50:30.471 -07:00 [DBG] Calling into custom token validator: IdentityServer4.Validation.DefaultCustomTokenValidator
+2018-04-25 04:50:30.475 -07:00 [DBG] Token validation success
+{
+  "ValidateLifetime": true,
+  "AccessTokenType": "Jwt",
+  "ExpectedScope": "openid",
+  "Claims": {
+    "nbf": 1524657030,
+    "exp": 1524660630,
+    "iss": "https://localhost:44331",
+    "aud": [
+      "https://localhost:44331/resources",
+      "photogallery.api"
+    ],
+    "client_id": "photogallery.web",
+    "sub": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+    "auth_time": 1524657027,
+    "idp": "local",
+    "role": "PayingUser",
+    "scope": [
+      "openid",
+      "profile",
+      "address",
+      "roles",
+      "subscriptionlevel",
+      "country",
+      "photogallery.api"
+    ],
+    "amr": "pwd"
+  }
+}
+2018-04-25 04:50:30.476 -07:00 [DBG] IsActive called from: UserInfoRequestValidation
+2018-04-25 04:50:30.484 -07:00 [DBG] Creating userinfo response
+2018-04-25 04:50:30.489 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 04:50:30.492 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 04:50:30.496 -07:00 [DBG] Requested claim types: sub name family_name given_name middle_name nickname preferred_username profile picture website gender birthdate zoneinfo locale updated_at address role subscriptionlevel country
+2018-04-25 04:50:30.496 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 04:50:30.496 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["sub","name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via UserInfoEndpoint
+2018-04-25 04:50:30.496 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 04:50:30.496 -07:00 [INF] Profile service returned to the following claim types: name given_name family_name website address role subscriptionlevel country
+2018-04-25 04:50:30.497 -07:00 [DBG] End userinfo request
+2018-04-25 04:50:30.866 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 04:50:30.866 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 04:50:30.866 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 04:50:30.866 -07:00 [DBG] Start discovery request
+2018-04-25 04:50:31.014 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 04:50:31.014 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 04:50:31.015 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 04:50:31.015 -07:00 [DBG] Start key discovery request
+2018-04-25 05:05:32.836 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-25 05:05:32.898 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-25 05:05:32.902 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-25 05:05:32.902 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-25 05:05:32.902 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-25 05:05:32.902 -07:00 [DBG] Using idsrv as default scheme for forbid
+2018-04-25 05:05:33.514 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 05:05:33.522 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 05:05:33.522 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 05:05:33.526 -07:00 [DBG] Start discovery request
+2018-04-25 05:05:33.716 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 05:05:33.717 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 05:05:33.717 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 05:05:33.721 -07:00 [DBG] Start key discovery request
+2018-04-25 05:05:33.857 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-25 05:05:33.864 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-25 05:05:33.864 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-25 05:05:33.870 -07:00 [DBG] Start authorize request
+2018-04-25 05:05:33.884 -07:00 [DBG] No user present in authorize request
+2018-04-25 05:05:33.891 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:05:33.913 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:05:33.915 -07:00 [DBG] No PKCE used.
+2018-04-25 05:05:33.964 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:05:33.980 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rS69sQKN1K1JHIPZ3DDg8riIsL7adfZtSGsZIa3oPebZk6fo35s4CshEFBdo3gjtnbfcRj2R1QnWucKdWpOVAboNha8UZ7UU0OxLhFylkXVeBbfBDYRroOdhGbfJgujAbXPlXk6ad6uBVhQuvQ4-rVg1SOvrB0jw3THJB29p2f7u2sne8XvyW2PfMPyStljk-wOVkxahCjVFwgBIIvezmvkA492upWS_oPLuG6Peu0j5j6bGNvK5482CLYsEof2JdBzU39WZyBbyZGGnLosdT1_QEEhUMxWQu9yyx-8hEwTFMiUl7ZGaNwt58Sxi0j3U0A",
+  "Nonce": "636602547338152721.MWU3OWQwZjktYjgxNC00YmMyLTg2NGUtNTA4NjMyY2E0YThmNWQwOTdiMjgtZmZkZC00M2UzLTkyNmMtMzY4M2RiZWEzYjAw",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602547338152721.MWU3OWQwZjktYjgxNC00YmMyLTg2NGUtNTA4NjMyY2E0YThmNWQwOTdiMjgtZmZkZC00M2UzLTkyNmMtMzY4M2RiZWEzYjAw",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rS69sQKN1K1JHIPZ3DDg8riIsL7adfZtSGsZIa3oPebZk6fo35s4CshEFBdo3gjtnbfcRj2R1QnWucKdWpOVAboNha8UZ7UU0OxLhFylkXVeBbfBDYRroOdhGbfJgujAbXPlXk6ad6uBVhQuvQ4-rVg1SOvrB0jw3THJB29p2f7u2sne8XvyW2PfMPyStljk-wOVkxahCjVFwgBIIvezmvkA492upWS_oPLuG6Peu0j5j6bGNvK5482CLYsEof2JdBzU39WZyBbyZGGnLosdT1_QEEhUMxWQu9yyx-8hEwTFMiUl7ZGaNwt58Sxi0j3U0A",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:05:33.991 -07:00 [INF] Showing login: User is not authenticated
+2018-04-25 05:05:34.076 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:05:34.077 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:05:34.077 -07:00 [DBG] No PKCE used.
+2018-04-25 05:05:34.077 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:05:58.965 -07:00 [DBG] CORS request made for path: /account/login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 05:05:59.052 -07:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "Claire",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "DisplayName": "Claire",
+  "Endpoint": "UI",
+  "ActivityId": "0HLDAKJCD8AOR:00000002",
+  "TimeStamp": "2018-04-25T12:05:59Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:05:59.069 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 05:05:59.071 -07:00 [DBG] Adding idp claim with value: local
+2018-04-25 05:05:59.071 -07:00 [DBG] Adding amr claim with value: pwd
+2018-04-25 05:05:59.084 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 05:05:59.090 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 05:05:59.091 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 05:05:59.091 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 05:05:59.097 -07:00 [DBG] Start authorize callback request
+2018-04-25 05:05:59.104 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:05:59.104 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:05:59.104 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:05:59.104 -07:00 [DBG] No PKCE used.
+2018-04-25 05:05:59.104 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:05:59.105 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rS69sQKN1K1JHIPZ3DDg8riIsL7adfZtSGsZIa3oPebZk6fo35s4CshEFBdo3gjtnbfcRj2R1QnWucKdWpOVAboNha8UZ7UU0OxLhFylkXVeBbfBDYRroOdhGbfJgujAbXPlXk6ad6uBVhQuvQ4-rVg1SOvrB0jw3THJB29p2f7u2sne8XvyW2PfMPyStljk-wOVkxahCjVFwgBIIvezmvkA492upWS_oPLuG6Peu0j5j6bGNvK5482CLYsEof2JdBzU39WZyBbyZGGnLosdT1_QEEhUMxWQu9yyx-8hEwTFMiUl7ZGaNwt58Sxi0j3U0A",
+  "Nonce": "636602547338152721.MWU3OWQwZjktYjgxNC00YmMyLTg2NGUtNTA4NjMyY2E0YThmNWQwOTdiMjgtZmZkZC00M2UzLTkyNmMtMzY4M2RiZWEzYjAw",
+  "SessionId": "dc0dd3954bc389f3a46c72974a154c86",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602547338152721.MWU3OWQwZjktYjgxNC00YmMyLTg2NGUtNTA4NjMyY2E0YThmNWQwOTdiMjgtZmZkZC00M2UzLTkyNmMtMzY4M2RiZWEzYjAw",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rS69sQKN1K1JHIPZ3DDg8riIsL7adfZtSGsZIa3oPebZk6fo35s4CshEFBdo3gjtnbfcRj2R1QnWucKdWpOVAboNha8UZ7UU0OxLhFylkXVeBbfBDYRroOdhGbfJgujAbXPlXk6ad6uBVhQuvQ4-rVg1SOvrB0jw3THJB29p2f7u2sne8XvyW2PfMPyStljk-wOVkxahCjVFwgBIIvezmvkA492upWS_oPLuG6Peu0j5j6bGNvK5482CLYsEof2JdBzU39WZyBbyZGGnLosdT1_QEEhUMxWQu9yyx-8hEwTFMiUl7ZGaNwt58Sxi0j3U0A",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:05:59.107 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 05:05:59.129 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 05:05:59.129 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 05:05:59.130 -07:00 [INF] Showing consent: User has not yet consented
+2018-04-25 05:05:59.162 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:05:59.162 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:05:59.162 -07:00 [DBG] No PKCE used.
+2018-04-25 05:05:59.162 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:06:01.537 -07:00 [DBG] CORS request made for path: /consent from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 05:06:01.557 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:06:01.558 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:06:01.558 -07:00 [DBG] No PKCE used.
+2018-04-25 05:06:01.558 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:06:01.590 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 05:06:01.591 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 05:06:01.591 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 05:06:01.591 -07:00 [DBG] Start authorize callback request
+2018-04-25 05:06:01.595 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:06:01.595 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:06:01.595 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:06:01.595 -07:00 [DBG] No PKCE used.
+2018-04-25 05:06:01.596 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:06:01.596 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rS69sQKN1K1JHIPZ3DDg8riIsL7adfZtSGsZIa3oPebZk6fo35s4CshEFBdo3gjtnbfcRj2R1QnWucKdWpOVAboNha8UZ7UU0OxLhFylkXVeBbfBDYRroOdhGbfJgujAbXPlXk6ad6uBVhQuvQ4-rVg1SOvrB0jw3THJB29p2f7u2sne8XvyW2PfMPyStljk-wOVkxahCjVFwgBIIvezmvkA492upWS_oPLuG6Peu0j5j6bGNvK5482CLYsEof2JdBzU39WZyBbyZGGnLosdT1_QEEhUMxWQu9yyx-8hEwTFMiUl7ZGaNwt58Sxi0j3U0A",
+  "Nonce": "636602547338152721.MWU3OWQwZjktYjgxNC00YmMyLTg2NGUtNTA4NjMyY2E0YThmNWQwOTdiMjgtZmZkZC00M2UzLTkyNmMtMzY4M2RiZWEzYjAw",
+  "SessionId": "dc0dd3954bc389f3a46c72974a154c86",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602547338152721.MWU3OWQwZjktYjgxNC00YmMyLTg2NGUtNTA4NjMyY2E0YThmNWQwOTdiMjgtZmZkZC00M2UzLTkyNmMtMzY4M2RiZWEzYjAw",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rS69sQKN1K1JHIPZ3DDg8riIsL7adfZtSGsZIa3oPebZk6fo35s4CshEFBdo3gjtnbfcRj2R1QnWucKdWpOVAboNha8UZ7UU0OxLhFylkXVeBbfBDYRroOdhGbfJgujAbXPlXk6ad6uBVhQuvQ4-rVg1SOvrB0jw3THJB29p2f7u2sne8XvyW2PfMPyStljk-wOVkxahCjVFwgBIIvezmvkA492upWS_oPLuG6Peu0j5j6bGNvK5482CLYsEof2JdBzU39WZyBbyZGGnLosdT1_QEEhUMxWQu9yyx-8hEwTFMiUl7ZGaNwt58Sxi0j3U0A",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:06:01.596 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 05:06:01.596 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 05:06:01.596 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 05:06:01.608 -07:00 [INF] User consented to scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 05:06:01.620 -07:00 [DBG] User indicated to remember consent for scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 05:06:01.624 -07:00 [DBG] Client allows remembering consent, and consent given. Updating consent store for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:06:01.640 -07:00 [DBG] Creating Hybrid Flow response.
+2018-04-25 05:06:01.663 -07:00 [DBG] Creating Implicit Flow response.
+2018-04-25 05:06:01.674 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 05:06:01.680 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 05:06:01.683 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:06:01.743 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "hybrid",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****BW3g"
+    },
+    {
+      "TokenType": "code",
+      "TokenValue": "****1a1b"
+    }
+  ],
+  "ActivityId": "0HLDAKJCD8AOT:00000003",
+  "TimeStamp": "2018-04-25T12:06:01Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:06:01.748 -07:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ClientId": "photogallery.web",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rS69sQKN1K1JHIPZ3DDg8riIsL7adfZtSGsZIa3oPebZk6fo35s4CshEFBdo3gjtnbfcRj2R1QnWucKdWpOVAboNha8UZ7UU0OxLhFylkXVeBbfBDYRroOdhGbfJgujAbXPlXk6ad6uBVhQuvQ4-rVg1SOvrB0jw3THJB29p2f7u2sne8XvyW2PfMPyStljk-wOVkxahCjVFwgBIIvezmvkA492upWS_oPLuG6Peu0j5j6bGNvK5482CLYsEof2JdBzU39WZyBbyZGGnLosdT1_QEEhUMxWQu9yyx-8hEwTFMiUl7ZGaNwt58Sxi0j3U0A",
+  "Scope": "openid profile address roles subscriptionlevel country photogallery.api"
+}
+2018-04-25 05:06:01.770 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 05:06:01.771 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 05:06:01.888 -07:00 [DBG] Request path /connect/token matched to endpoint type Token
+2018-04-25 05:06:01.892 -07:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2018-04-25 05:06:01.892 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2018-04-25 05:06:01.902 -07:00 [DBG] Start token request.
+2018-04-25 05:06:01.908 -07:00 [DBG] Start client validation
+2018-04-25 05:06:01.913 -07:00 [DBG] Start parsing Basic Authentication secret
+2018-04-25 05:06:01.917 -07:00 [DBG] Start parsing for secret in post body
+2018-04-25 05:06:01.918 -07:00 [DBG] Parser found secret: PostBodySecretParser
+2018-04-25 05:06:01.918 -07:00 [DBG] Secret id found: photogallery.web
+2018-04-25 05:06:01.928 -07:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2018-04-25 05:06:01.928 -07:00 [DBG] Client validation success
+2018-04-25 05:06:01.934 -07:00 [INF] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "photogallery.web",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLDAKJCD8AOR:00000003",
+  "TimeStamp": "2018-04-25T12:06:01Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:06:01.943 -07:00 [DBG] Start token request validation
+2018-04-25 05:06:01.956 -07:00 [DBG] Start validation of authorization code token request
+2018-04-25 05:06:01.973 -07:00 [DBG] IsActive called from: AuthorizationCodeValidation
+2018-04-25 05:06:01.973 -07:00 [DBG] Validation of authorization code token request success
+2018-04-25 05:06:01.980 -07:00 [INF] Token request validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "GrantType": "authorization_code",
+  "AuthorizationCode": "4e8027762e838d5e693269cf2d05c61db16ee8b4a83bb36e7226548a68411a1b",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "client_secret": "***REDACTED***",
+    "code": "4e8027762e838d5e693269cf2d05c61db16ee8b4a83bb36e7226548a68411a1b",
+    "grant_type": "authorization_code",
+    "redirect_uri": "https://localhost:44309/signin-oidc"
+  }
+}
+2018-04-25 05:06:02.008 -07:00 [DBG] Getting claims for access token for client: photogallery.web
+2018-04-25 05:06:02.008 -07:00 [DBG] Getting claims for access token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:06:02.009 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["role"] via ClaimsProviderAccessToken
+2018-04-25 05:06:02.009 -07:00 [DBG] Issued claims: ["role"]
+2018-04-25 05:06:02.014 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 05:06:02.015 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 05:06:02.015 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:06:02.021 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "Endpoint": "Token",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "authorization_code",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****-QkQ"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****xpKA"
+    }
+  ],
+  "ActivityId": "0HLDAKJCD8AOR:00000003",
+  "TimeStamp": "2018-04-25T12:06:02Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:06:02.023 -07:00 [DBG] Token request success.
+2018-04-25 05:06:02.051 -07:00 [DBG] Request path /connect/userinfo matched to endpoint type Userinfo
+2018-04-25 05:06:02.053 -07:00 [DBG] Endpoint enabled: Userinfo, successfully created handler: IdentityServer4.Endpoints.UserInfoEndpoint
+2018-04-25 05:06:02.053 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.UserInfoEndpoint for /connect/userinfo
+2018-04-25 05:06:02.060 -07:00 [DBG] Start userinfo request
+2018-04-25 05:06:02.064 -07:00 [DBG] Bearer token found in header
+2018-04-25 05:06:02.094 -07:00 [DBG] IsActive called from: AccessTokenValidation
+2018-04-25 05:06:02.094 -07:00 [DBG] Calling into custom token validator: IdentityServer4.Validation.DefaultCustomTokenValidator
+2018-04-25 05:06:02.099 -07:00 [DBG] Token validation success
+{
+  "ValidateLifetime": true,
+  "AccessTokenType": "Jwt",
+  "ExpectedScope": "openid",
+  "Claims": {
+    "nbf": 1524657962,
+    "exp": 1524661562,
+    "iss": "https://localhost:44331",
+    "aud": [
+      "https://localhost:44331/resources",
+      "photogallery.api"
+    ],
+    "client_id": "photogallery.web",
+    "sub": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+    "auth_time": 1524657959,
+    "idp": "local",
+    "role": "PayingUser",
+    "scope": [
+      "openid",
+      "profile",
+      "address",
+      "roles",
+      "subscriptionlevel",
+      "country",
+      "photogallery.api"
+    ],
+    "amr": "pwd"
+  }
+}
+2018-04-25 05:06:02.100 -07:00 [DBG] IsActive called from: UserInfoRequestValidation
+2018-04-25 05:06:02.107 -07:00 [DBG] Creating userinfo response
+2018-04-25 05:06:02.114 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:06:02.118 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:06:02.121 -07:00 [DBG] Requested claim types: sub name family_name given_name middle_name nickname preferred_username profile picture website gender birthdate zoneinfo locale updated_at address role subscriptionlevel country
+2018-04-25 05:06:02.121 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:06:02.121 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["sub","name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via UserInfoEndpoint
+2018-04-25 05:06:02.122 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:06:02.122 -07:00 [INF] Profile service returned to the following claim types: name given_name family_name website address role subscriptionlevel country
+2018-04-25 05:06:02.122 -07:00 [DBG] End userinfo request
+2018-04-25 05:06:02.499 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 05:06:02.499 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 05:06:02.499 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 05:06:02.499 -07:00 [DBG] Start discovery request
+2018-04-25 05:06:02.648 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 05:06:02.648 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 05:06:02.648 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 05:06:02.648 -07:00 [DBG] Start key discovery request
+2018-04-25 05:06:58.073 -07:00 [DBG] Request path /connect/endsession matched to endpoint type Endsession
+2018-04-25 05:06:58.075 -07:00 [DBG] Endpoint enabled: Endsession, successfully created handler: IdentityServer4.Endpoints.EndSessionEndpoint
+2018-04-25 05:06:58.075 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.EndSessionEndpoint for /connect/endsession
+2018-04-25 05:06:58.082 -07:00 [DBG] Processing signout request for b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:06:58.089 -07:00 [DBG] Start end session request validation
+2018-04-25 05:06:58.096 -07:00 [DBG] Start identity token validation
+2018-04-25 05:06:58.097 -07:00 [DBG] Client found: photogallery.web / Photo Gallery
+2018-04-25 05:06:58.101 -07:00 [DBG] IsActive called from: IdentityTokenValidation
+2018-04-25 05:06:58.101 -07:00 [DBG] Calling into custom token validator: IdentityServer4.Validation.DefaultCustomTokenValidator
+2018-04-25 05:06:58.102 -07:00 [DBG] Token validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "ValidateLifetime": false,
+  "Claims": {
+    "nbf": 1524657962,
+    "exp": 1524658262,
+    "iss": "https://localhost:44331",
+    "aud": "photogallery.web",
+    "nonce": "636602547338152721.MWU3OWQwZjktYjgxNC00YmMyLTg2NGUtNTA4NjMyY2E0YThmNWQwOTdiMjgtZmZkZC00M2UzLTkyNmMtMzY4M2RiZWEzYjAw",
+    "iat": 1524657962,
+    "at_hash": "WNAPmjkpn12hg_atEY6bHQ",
+    "sid": "dc0dd3954bc389f3a46c72974a154c86",
+    "sub": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+    "auth_time": 1524657959,
+    "idp": "local",
+    "name": "Claire Underwood",
+    "given_name": "Claire",
+    "family_name": "Underwood",
+    "website": "http://claire.com",
+    "address": "One Big Street",
+    "role": "PayingUser",
+    "subscriptionlevel": "PayingUser",
+    "country": "be",
+    "amr": "pwd"
+  }
+}
+2018-04-25 05:06:58.109 -07:00 [INF] End session request validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "PostLogOutUri": "https://localhost:44309/signout-callback-oidc",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rSi9c1bSGDYUPf3YyHnTWNWjPRpdsgy2Yc5TCccgj9LtNTSNvCgKK5686NjVZ43Waxjdb5TT-NwPHrtwRq07OdKRgNBkq1DAkGtUs6PSzkncuy37XkYyD08_QZZq0RGNKODOH6ZICSjnYNWNK-pNqBS",
+  "Raw": {
+    "post_logout_redirect_uri": "https://localhost:44309/signout-callback-oidc",
+    "id_token_hint": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImU5YzFhNzYwZjRjZTFkYzcyODZjZTkzOGUxMWZmNmU2IiwidHlwIjoiSldUIn0.eyJuYmYiOjE1MjQ2NTc5NjIsImV4cCI6MTUyNDY1ODI2MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMzEiLCJhdWQiOiJwaG90b2dhbGxlcnkud2ViIiwibm9uY2UiOiI2MzY2MDI1NDczMzgxNTI3MjEuTVdVM09XUXdaamt0WWpneE5DMDBZbU15TFRnMk5HVXROVEE0TmpNeVkyRTBZVGhtTldRd09UZGlNamd0Wm1aa1pDMDBNMlV6TFRreU5tTXRNelk0TTJSaVpXRXpZakF3IiwiaWF0IjoxNTI0NjU3OTYyLCJhdF9oYXNoIjoiV05BUG1qa3BuMTJoZ19hdEVZNmJIUSIsInNpZCI6ImRjMGRkMzk1NGJjMzg5ZjNhNDZjNzI5NzRhMTU0Yzg2Iiwic3ViIjoiYjc1Mzk2OTQtOTdlNy00ZGZlLTg0ZGEtYjQyNTZlMWZmNWM3IiwiYXV0aF90aW1lIjoxNTI0NjU3OTU5LCJpZHAiOiJsb2NhbCIsIm5hbWUiOiJDbGFpcmUgVW5kZXJ3b29kIiwiZ2l2ZW5fbmFtZSI6IkNsYWlyZSIsImZhbWlseV9uYW1lIjoiVW5kZXJ3b29kIiwid2Vic2l0ZSI6Imh0dHA6Ly9jbGFpcmUuY29tIiwiYWRkcmVzcyI6Ik9uZSBCaWcgU3RyZWV0Iiwicm9sZSI6IlBheWluZ1VzZXIiLCJzdWJzY3JpcHRpb25sZXZlbCI6IlBheWluZ1VzZXIiLCJjb3VudHJ5IjoiYmUiLCJhbXIiOlsicHdkIl19.Fst3tJvxAEE8l9GNlEwGa4qDioFZ0LZc6px-AfBZEq4IDeCjMh_001sdCaAtVKly0cqVSB8hBuHHa-cimPhGeTGegIKqsVIdAwp-6Pa-Idz5lpevYSBQjw9LET9MBTIiTFUKobPuxGh5CE-LJkbQSfxlmtsmzXVirD_R0IoWpgCKJS_y_OKAgmL-dv1V-lmtdZYF35K4XdcvO2Z-Qlp94VS8MMZm_rO9X8LgdeRwssi8lMspMrfRU5UP1Ts_P5-gL0Ha7-7zkud2NP3CHdvhMPV7Yi7f1vLRnuF_9YwOcvcgYR9qBQiO5Q8rYofQ4lUCBhW7TMjs6E0HTK3jvv-QkQ",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rSi9c1bSGDYUPf3YyHnTWNWjPRpdsgy2Yc5TCccgj9LtNTSNvCgKK5686NjVZ43Waxjdb5TT-NwPHrtwRq07OdKRgNBkq1DAkGtUs6PSzkncuy37XkYyD08_QZZq0RGNKODOH6ZICSjnYNWNK-pNqBS",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:06:58.109 -07:00 [DBG] Success validating end session request from photogallery.web
+2018-04-25 05:06:58.178 -07:00 [INF] AuthenticationScheme: idsrv signed out.
+2018-04-25 05:06:58.185 -07:00 [INF] {
+  "Name": "User Logout Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1002,
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "DisplayName": "Claire",
+  "ActivityId": "0HLDAKJCD8AOT:00000004",
+  "TimeStamp": "2018-04-25T12:06:58Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:06:58.331 -07:00 [DBG] Request path /connect/endsession/callback matched to endpoint type Endsession
+2018-04-25 05:06:58.333 -07:00 [DBG] Endpoint enabled: Endsession, successfully created handler: IdentityServer4.Endpoints.EndSessionCallbackEndpoint
+2018-04-25 05:06:58.333 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.EndSessionCallbackEndpoint for /connect/endsession/callback
+2018-04-25 05:06:58.339 -07:00 [DBG] Processing signout callback request
+2018-04-25 05:06:58.354 -07:00 [DBG] Client front-channel logout URLs: https://localhost:44309/signout-oidc?sid=dc0dd3954bc389f3a46c72974a154c86&iss=https%3A%2F%2Flocalhost%3A44331
+2018-04-25 05:06:58.354 -07:00 [DBG] No client back-channel logout URLs
+2018-04-25 05:06:58.354 -07:00 [INF] Successful signout callback.
+2018-04-25 05:06:58.355 -07:00 [DBG] Client front-channel iframe urls: ["https://localhost:44309/signout-oidc?sid=dc0dd3954bc389f3a46c72974a154c86&iss=https%3A%2F%2Flocalhost%3A44331"]
+2018-04-25 05:06:58.355 -07:00 [DBG] No client back-channel iframe urls
+2018-04-25 05:06:58.510 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-25 05:06:58.510 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-25 05:06:58.510 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-25 05:06:58.511 -07:00 [DBG] Start authorize request
+2018-04-25 05:06:58.511 -07:00 [DBG] No user present in authorize request
+2018-04-25 05:06:58.511 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:06:58.511 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:06:58.511 -07:00 [DBG] No PKCE used.
+2018-04-25 05:06:58.511 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:06:58.512 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rRmWxeBE7jYwHM9DHpGFeBm3gzQUr5BPNZRV-gDwPTkjNsPdtr-uEBokehjHkorRL3uTRtiMYIoipubhUKIq9EEbEZhqGi_hWl-DXpjoOPgFGuf6kl1NaEwZt7BGctFxaYSvRNdWJF2LEo_lkLV4B3zYioYCcnrd5hBrs4X1xoW8-rgLaTX07JSVjv-yC_cw-WwX5UMf4S_vePGk-_5R9xs6VBClaokV6sIb8WIck_QXnlOAifTLh1FZtBFZ8-hi3duHfmqcbSR9u_qaTnRQjZPZd5HIjdReLQFOGCQv-0ki2UAiUvwPfUJEET0rsxwB3A",
+  "Nonce": "636602548185016980.MDkzNzE1YTUtNjI1ZS00MWFhLWE1MDItYjVlM2Y2OTJmYjllYzEyODE3NjUtOTJkNi00YzI2LTg4NGEtY2Q5MjE5Y2ViYzdk",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602548185016980.MDkzNzE1YTUtNjI1ZS00MWFhLWE1MDItYjVlM2Y2OTJmYjllYzEyODE3NjUtOTJkNi00YzI2LTg4NGEtY2Q5MjE5Y2ViYzdk",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rRmWxeBE7jYwHM9DHpGFeBm3gzQUr5BPNZRV-gDwPTkjNsPdtr-uEBokehjHkorRL3uTRtiMYIoipubhUKIq9EEbEZhqGi_hWl-DXpjoOPgFGuf6kl1NaEwZt7BGctFxaYSvRNdWJF2LEo_lkLV4B3zYioYCcnrd5hBrs4X1xoW8-rgLaTX07JSVjv-yC_cw-WwX5UMf4S_vePGk-_5R9xs6VBClaokV6sIb8WIck_QXnlOAifTLh1FZtBFZ8-hi3duHfmqcbSR9u_qaTnRQjZPZd5HIjdReLQFOGCQv-0ki2UAiUvwPfUJEET0rsxwB3A",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:06:58.512 -07:00 [INF] Showing login: User is not authenticated
+2018-04-25 05:06:58.516 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:06:58.517 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:06:58.517 -07:00 [DBG] No PKCE used.
+2018-04-25 05:06:58.517 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:07:13.557 -07:00 [DBG] CORS request made for path: /account/login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 05:07:13.558 -07:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "Claire",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "DisplayName": "Claire",
+  "Endpoint": "UI",
+  "ActivityId": "0HLDAKJCD8AOP:00000006",
+  "TimeStamp": "2018-04-25T12:07:13Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:07:13.558 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 05:07:13.558 -07:00 [DBG] Adding idp claim with value: local
+2018-04-25 05:07:13.559 -07:00 [DBG] Adding amr claim with value: pwd
+2018-04-25 05:07:13.559 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 05:07:13.566 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 05:07:13.575 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 05:07:13.575 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 05:07:13.575 -07:00 [DBG] Start authorize callback request
+2018-04-25 05:07:13.575 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:07:13.575 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:07:13.575 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:07:13.575 -07:00 [DBG] No PKCE used.
+2018-04-25 05:07:13.576 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:07:13.576 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rRmWxeBE7jYwHM9DHpGFeBm3gzQUr5BPNZRV-gDwPTkjNsPdtr-uEBokehjHkorRL3uTRtiMYIoipubhUKIq9EEbEZhqGi_hWl-DXpjoOPgFGuf6kl1NaEwZt7BGctFxaYSvRNdWJF2LEo_lkLV4B3zYioYCcnrd5hBrs4X1xoW8-rgLaTX07JSVjv-yC_cw-WwX5UMf4S_vePGk-_5R9xs6VBClaokV6sIb8WIck_QXnlOAifTLh1FZtBFZ8-hi3duHfmqcbSR9u_qaTnRQjZPZd5HIjdReLQFOGCQv-0ki2UAiUvwPfUJEET0rsxwB3A",
+  "Nonce": "636602548185016980.MDkzNzE1YTUtNjI1ZS00MWFhLWE1MDItYjVlM2Y2OTJmYjllYzEyODE3NjUtOTJkNi00YzI2LTg4NGEtY2Q5MjE5Y2ViYzdk",
+  "SessionId": "e0130a6503a69496e775c813aa1a31c1",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602548185016980.MDkzNzE1YTUtNjI1ZS00MWFhLWE1MDItYjVlM2Y2OTJmYjllYzEyODE3NjUtOTJkNi00YzI2LTg4NGEtY2Q5MjE5Y2ViYzdk",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rRmWxeBE7jYwHM9DHpGFeBm3gzQUr5BPNZRV-gDwPTkjNsPdtr-uEBokehjHkorRL3uTRtiMYIoipubhUKIq9EEbEZhqGi_hWl-DXpjoOPgFGuf6kl1NaEwZt7BGctFxaYSvRNdWJF2LEo_lkLV4B3zYioYCcnrd5hBrs4X1xoW8-rgLaTX07JSVjv-yC_cw-WwX5UMf4S_vePGk-_5R9xs6VBClaokV6sIb8WIck_QXnlOAifTLh1FZtBFZ8-hi3duHfmqcbSR9u_qaTnRQjZPZd5HIjdReLQFOGCQv-0ki2UAiUvwPfUJEET0rsxwB3A",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:07:13.576 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 05:07:13.585 -07:00 [DBG] Consent found in consent store is same as current request, consent is not required
+2018-04-25 05:07:13.585 -07:00 [DBG] Creating Hybrid Flow response.
+2018-04-25 05:07:13.601 -07:00 [DBG] Creating Implicit Flow response.
+2018-04-25 05:07:13.601 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 05:07:13.601 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 05:07:13.601 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:07:13.607 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "hybrid",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****2HRg"
+    },
+    {
+      "TokenType": "code",
+      "TokenValue": "****30a7"
+    }
+  ],
+  "ActivityId": "0HLDAKJCD8AOT:00000005",
+  "TimeStamp": "2018-04-25T12:07:13Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:07:13.608 -07:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ClientId": "photogallery.web",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rRmWxeBE7jYwHM9DHpGFeBm3gzQUr5BPNZRV-gDwPTkjNsPdtr-uEBokehjHkorRL3uTRtiMYIoipubhUKIq9EEbEZhqGi_hWl-DXpjoOPgFGuf6kl1NaEwZt7BGctFxaYSvRNdWJF2LEo_lkLV4B3zYioYCcnrd5hBrs4X1xoW8-rgLaTX07JSVjv-yC_cw-WwX5UMf4S_vePGk-_5R9xs6VBClaokV6sIb8WIck_QXnlOAifTLh1FZtBFZ8-hi3duHfmqcbSR9u_qaTnRQjZPZd5HIjdReLQFOGCQv-0ki2UAiUvwPfUJEET0rsxwB3A",
+  "Scope": "openid profile address roles subscriptionlevel country photogallery.api"
+}
+2018-04-25 05:07:13.608 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 05:07:13.608 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 05:07:13.743 -07:00 [DBG] Request path /connect/token matched to endpoint type Token
+2018-04-25 05:07:13.744 -07:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2018-04-25 05:07:13.744 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2018-04-25 05:07:13.744 -07:00 [DBG] Start token request.
+2018-04-25 05:07:13.744 -07:00 [DBG] Start client validation
+2018-04-25 05:07:13.744 -07:00 [DBG] Start parsing Basic Authentication secret
+2018-04-25 05:07:13.744 -07:00 [DBG] Start parsing for secret in post body
+2018-04-25 05:07:13.744 -07:00 [DBG] Parser found secret: PostBodySecretParser
+2018-04-25 05:07:13.744 -07:00 [DBG] Secret id found: photogallery.web
+2018-04-25 05:07:13.745 -07:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2018-04-25 05:07:13.745 -07:00 [DBG] Client validation success
+2018-04-25 05:07:13.745 -07:00 [INF] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "photogallery.web",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLDAKJCD8AOR:00000005",
+  "TimeStamp": "2018-04-25T12:07:13Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:07:13.745 -07:00 [DBG] Start token request validation
+2018-04-25 05:07:13.745 -07:00 [DBG] Start validation of authorization code token request
+2018-04-25 05:07:13.763 -07:00 [DBG] IsActive called from: AuthorizationCodeValidation
+2018-04-25 05:07:13.763 -07:00 [DBG] Validation of authorization code token request success
+2018-04-25 05:07:13.764 -07:00 [INF] Token request validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "GrantType": "authorization_code",
+  "AuthorizationCode": "9b6f1d661fe84251e56a8e169a28666b1b9e2b21e68c10d1ad2b9ae1acf430a7",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "client_secret": "***REDACTED***",
+    "code": "9b6f1d661fe84251e56a8e169a28666b1b9e2b21e68c10d1ad2b9ae1acf430a7",
+    "grant_type": "authorization_code",
+    "redirect_uri": "https://localhost:44309/signin-oidc"
+  }
+}
+2018-04-25 05:07:13.764 -07:00 [DBG] Getting claims for access token for client: photogallery.web
+2018-04-25 05:07:13.764 -07:00 [DBG] Getting claims for access token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:07:13.764 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["role"] via ClaimsProviderAccessToken
+2018-04-25 05:07:13.764 -07:00 [DBG] Issued claims: ["role"]
+2018-04-25 05:07:13.769 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 05:07:13.770 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 05:07:13.770 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:07:13.775 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "Endpoint": "Token",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "authorization_code",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****VnbQ"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****O4IA"
+    }
+  ],
+  "ActivityId": "0HLDAKJCD8AOR:00000005",
+  "TimeStamp": "2018-04-25T12:07:13Z",
+  "ProcessId": 14268,
+  "LocalIpAddress": "127.0.0.1:28594",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:07:13.775 -07:00 [DBG] Token request success.
+2018-04-25 05:07:13.790 -07:00 [DBG] Request path /connect/userinfo matched to endpoint type Userinfo
+2018-04-25 05:07:13.790 -07:00 [DBG] Endpoint enabled: Userinfo, successfully created handler: IdentityServer4.Endpoints.UserInfoEndpoint
+2018-04-25 05:07:13.790 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.UserInfoEndpoint for /connect/userinfo
+2018-04-25 05:07:13.790 -07:00 [DBG] Start userinfo request
+2018-04-25 05:07:13.790 -07:00 [DBG] Bearer token found in header
+2018-04-25 05:07:13.794 -07:00 [DBG] IsActive called from: AccessTokenValidation
+2018-04-25 05:07:13.794 -07:00 [DBG] Calling into custom token validator: IdentityServer4.Validation.DefaultCustomTokenValidator
+2018-04-25 05:07:13.795 -07:00 [DBG] Token validation success
+{
+  "ValidateLifetime": true,
+  "AccessTokenType": "Jwt",
+  "ExpectedScope": "openid",
+  "Claims": {
+    "nbf": 1524658033,
+    "exp": 1524661633,
+    "iss": "https://localhost:44331",
+    "aud": [
+      "https://localhost:44331/resources",
+      "photogallery.api"
+    ],
+    "client_id": "photogallery.web",
+    "sub": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+    "auth_time": 1524658033,
+    "idp": "local",
+    "role": "PayingUser",
+    "scope": [
+      "openid",
+      "profile",
+      "address",
+      "roles",
+      "subscriptionlevel",
+      "country",
+      "photogallery.api"
+    ],
+    "amr": "pwd"
+  }
+}
+2018-04-25 05:07:13.795 -07:00 [DBG] IsActive called from: UserInfoRequestValidation
+2018-04-25 05:07:13.795 -07:00 [DBG] Creating userinfo response
+2018-04-25 05:07:13.795 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:07:13.795 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:07:13.795 -07:00 [DBG] Requested claim types: sub name family_name given_name middle_name nickname preferred_username profile picture website gender birthdate zoneinfo locale updated_at address role subscriptionlevel country
+2018-04-25 05:07:13.795 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:07:13.796 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["sub","name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via UserInfoEndpoint
+2018-04-25 05:07:13.796 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:07:13.796 -07:00 [INF] Profile service returned to the following claim types: name given_name family_name website address role subscriptionlevel country
+2018-04-25 05:07:13.796 -07:00 [DBG] End userinfo request
+2018-04-25 05:22:07.170 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-25 05:22:07.235 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-25 05:22:07.241 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-25 05:22:07.241 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-25 05:22:07.241 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-25 05:22:07.241 -07:00 [DBG] Using idsrv as default scheme for forbid
+2018-04-25 05:22:09.163 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 05:22:09.170 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 05:22:09.170 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 05:22:09.175 -07:00 [DBG] Start discovery request
+2018-04-25 05:22:09.346 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 05:22:09.346 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 05:22:09.346 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 05:22:09.351 -07:00 [DBG] Start key discovery request
+2018-04-25 05:22:09.476 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-25 05:22:09.481 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-25 05:22:09.481 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-25 05:22:09.486 -07:00 [DBG] Start authorize request
+2018-04-25 05:22:09.496 -07:00 [DBG] No user present in authorize request
+2018-04-25 05:22:09.501 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:22:09.516 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:22:09.518 -07:00 [DBG] No PKCE used.
+2018-04-25 05:22:09.558 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:22:09.571 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rTJCSEQMU-yT6TukaR6TxCCZc8dWfQ_-IGyKIolIvbGrWLDfVJ7rSd9MVsxeYkBFbLGUVel4KmhC3jORE58K6LeG6GAdy90i09MdZ1IeL4sXjAlYuDXO3R543oxrspJXJNAvzT3B_RpqBxiS0MfHg1lvwm_dnVXdAPqz3VhTY1z1OAiwLZcHL8b97zCkKkL1tKQvrC-kkRLqJ9S0DkIDidZAvTjcs-PPn7cI6p15RMPgcjhxk6h5RETrvPHm-1gvEcYS3Ho13itbSAZTqBtcGEY1Qa08gEZ-lFg4gS6SoHum4VcnFJYdnOJ1qa1MM5W5Zc",
+  "Nonce": "636602557294326075.Yzk2ZjY0MjktOGJhMS00ODI1LWExYWUtNjM1ZDk5YzI2NzNiNDc5YzZkMTYtZjA4MS00ZGIyLTkyYmItZmE3ZWIwZmEzNjFh",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602557294326075.Yzk2ZjY0MjktOGJhMS00ODI1LWExYWUtNjM1ZDk5YzI2NzNiNDc5YzZkMTYtZjA4MS00ZGIyLTkyYmItZmE3ZWIwZmEzNjFh",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rTJCSEQMU-yT6TukaR6TxCCZc8dWfQ_-IGyKIolIvbGrWLDfVJ7rSd9MVsxeYkBFbLGUVel4KmhC3jORE58K6LeG6GAdy90i09MdZ1IeL4sXjAlYuDXO3R543oxrspJXJNAvzT3B_RpqBxiS0MfHg1lvwm_dnVXdAPqz3VhTY1z1OAiwLZcHL8b97zCkKkL1tKQvrC-kkRLqJ9S0DkIDidZAvTjcs-PPn7cI6p15RMPgcjhxk6h5RETrvPHm-1gvEcYS3Ho13itbSAZTqBtcGEY1Qa08gEZ-lFg4gS6SoHum4VcnFJYdnOJ1qa1MM5W5Zc",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:22:09.580 -07:00 [INF] Showing login: User is not authenticated
+2018-04-25 05:22:09.656 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:22:09.657 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:22:09.657 -07:00 [DBG] No PKCE used.
+2018-04-25 05:22:09.657 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:22:21.278 -07:00 [DBG] CORS request made for path: /account/login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 05:22:21.361 -07:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "Claire",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "DisplayName": "Claire",
+  "Endpoint": "UI",
+  "ActivityId": "0HLDAKSKQR0RQ:00000003",
+  "TimeStamp": "2018-04-25T12:22:21Z",
+  "ProcessId": 21216,
+  "LocalIpAddress": "127.0.0.1:2165",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:22:21.381 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 05:22:21.384 -07:00 [DBG] Adding idp claim with value: local
+2018-04-25 05:22:21.384 -07:00 [DBG] Adding amr claim with value: pwd
+2018-04-25 05:22:21.398 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 05:22:21.405 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 05:22:21.405 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 05:22:21.405 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 05:22:21.411 -07:00 [DBG] Start authorize callback request
+2018-04-25 05:22:21.416 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:22:21.416 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:22:21.416 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:22:21.416 -07:00 [DBG] No PKCE used.
+2018-04-25 05:22:21.417 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:22:21.417 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rTJCSEQMU-yT6TukaR6TxCCZc8dWfQ_-IGyKIolIvbGrWLDfVJ7rSd9MVsxeYkBFbLGUVel4KmhC3jORE58K6LeG6GAdy90i09MdZ1IeL4sXjAlYuDXO3R543oxrspJXJNAvzT3B_RpqBxiS0MfHg1lvwm_dnVXdAPqz3VhTY1z1OAiwLZcHL8b97zCkKkL1tKQvrC-kkRLqJ9S0DkIDidZAvTjcs-PPn7cI6p15RMPgcjhxk6h5RETrvPHm-1gvEcYS3Ho13itbSAZTqBtcGEY1Qa08gEZ-lFg4gS6SoHum4VcnFJYdnOJ1qa1MM5W5Zc",
+  "Nonce": "636602557294326075.Yzk2ZjY0MjktOGJhMS00ODI1LWExYWUtNjM1ZDk5YzI2NzNiNDc5YzZkMTYtZjA4MS00ZGIyLTkyYmItZmE3ZWIwZmEzNjFh",
+  "SessionId": "a3b3f82256a6e24d540aa47015b692c8",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602557294326075.Yzk2ZjY0MjktOGJhMS00ODI1LWExYWUtNjM1ZDk5YzI2NzNiNDc5YzZkMTYtZjA4MS00ZGIyLTkyYmItZmE3ZWIwZmEzNjFh",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rTJCSEQMU-yT6TukaR6TxCCZc8dWfQ_-IGyKIolIvbGrWLDfVJ7rSd9MVsxeYkBFbLGUVel4KmhC3jORE58K6LeG6GAdy90i09MdZ1IeL4sXjAlYuDXO3R543oxrspJXJNAvzT3B_RpqBxiS0MfHg1lvwm_dnVXdAPqz3VhTY1z1OAiwLZcHL8b97zCkKkL1tKQvrC-kkRLqJ9S0DkIDidZAvTjcs-PPn7cI6p15RMPgcjhxk6h5RETrvPHm-1gvEcYS3Ho13itbSAZTqBtcGEY1Qa08gEZ-lFg4gS6SoHum4VcnFJYdnOJ1qa1MM5W5Zc",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:22:21.419 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 05:22:21.438 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 05:22:21.438 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 05:22:21.438 -07:00 [INF] Showing consent: User has not yet consented
+2018-04-25 05:22:21.464 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:22:21.464 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:22:21.465 -07:00 [DBG] No PKCE used.
+2018-04-25 05:22:21.465 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:22:23.171 -07:00 [DBG] CORS request made for path: /consent from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2018-04-25 05:22:23.201 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:22:23.201 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:22:23.201 -07:00 [DBG] No PKCE used.
+2018-04-25 05:22:23.202 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:22:23.240 -07:00 [DBG] Request path /connect/authorize/callback matched to endpoint type Authorize
+2018-04-25 05:22:23.240 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint
+2018-04-25 05:22:23.240 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-04-25 05:22:23.240 -07:00 [DBG] Start authorize callback request
+2018-04-25 05:22:23.244 -07:00 [DBG] User in authorize request: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:22:23.245 -07:00 [DBG] Start authorize request protocol validation
+2018-04-25 05:22:23.245 -07:00 [DBG] Checking for PKCE parameters
+2018-04-25 05:22:23.245 -07:00 [DBG] No PKCE used.
+2018-04-25 05:22:23.245 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-25 05:22:23.245 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rTJCSEQMU-yT6TukaR6TxCCZc8dWfQ_-IGyKIolIvbGrWLDfVJ7rSd9MVsxeYkBFbLGUVel4KmhC3jORE58K6LeG6GAdy90i09MdZ1IeL4sXjAlYuDXO3R543oxrspJXJNAvzT3B_RpqBxiS0MfHg1lvwm_dnVXdAPqz3VhTY1z1OAiwLZcHL8b97zCkKkL1tKQvrC-kkRLqJ9S0DkIDidZAvTjcs-PPn7cI6p15RMPgcjhxk6h5RETrvPHm-1gvEcYS3Ho13itbSAZTqBtcGEY1Qa08gEZ-lFg4gS6SoHum4VcnFJYdnOJ1qa1MM5W5Zc",
+  "Nonce": "636602557294326075.Yzk2ZjY0MjktOGJhMS00ODI1LWExYWUtNjM1ZDk5YzI2NzNiNDc5YzZkMTYtZjA4MS00ZGIyLTkyYmItZmE3ZWIwZmEzNjFh",
+  "SessionId": "a3b3f82256a6e24d540aa47015b692c8",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country",
+    "response_mode": "form_post",
+    "nonce": "636602557294326075.Yzk2ZjY0MjktOGJhMS00ODI1LWExYWUtNjM1ZDk5YzI2NzNiNDc5YzZkMTYtZjA4MS00ZGIyLTkyYmItZmE3ZWIwZmEzNjFh",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rTJCSEQMU-yT6TukaR6TxCCZc8dWfQ_-IGyKIolIvbGrWLDfVJ7rSd9MVsxeYkBFbLGUVel4KmhC3jORE58K6LeG6GAdy90i09MdZ1IeL4sXjAlYuDXO3R543oxrspJXJNAvzT3B_RpqBxiS0MfHg1lvwm_dnVXdAPqz3VhTY1z1OAiwLZcHL8b97zCkKkL1tKQvrC-kkRLqJ9S0DkIDidZAvTjcs-PPn7cI6p15RMPgcjhxk6h5RETrvPHm-1gvEcYS3Ho13itbSAZTqBtcGEY1Qa08gEZ-lFg4gS6SoHum4VcnFJYdnOJ1qa1MM5W5Zc",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-25 05:22:23.245 -07:00 [DBG] IsActive called from: AuthorizeEndpoint
+2018-04-25 05:22:23.245 -07:00 [DBG] user_consent grant with value: photogallery.web|b7539694-97e7-4dfe-84da-b4256e1ff5c7 not found in store.
+2018-04-25 05:22:23.245 -07:00 [DBG] Found no prior consent from consent store, consent is required
+2018-04-25 05:22:23.257 -07:00 [INF] User consented to scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 05:22:23.270 -07:00 [DBG] User indicated to remember consent for scopes: ["openid","profile","address","roles","subscriptionlevel","country","photogallery.api"]
+2018-04-25 05:22:23.274 -07:00 [DBG] Client allows remembering consent, and consent given. Updating consent store for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:22:23.290 -07:00 [DBG] Creating Hybrid Flow response.
+2018-04-25 05:22:23.313 -07:00 [DBG] Creating Implicit Flow response.
+2018-04-25 05:22:23.325 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 05:22:23.330 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 05:22:23.333 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:22:23.396 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "hybrid",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****u0Ig"
+    },
+    {
+      "TokenType": "code",
+      "TokenValue": "****0f7f"
+    }
+  ],
+  "ActivityId": "0HLDAKSKQR0RU:00000003",
+  "TimeStamp": "2018-04-25T12:22:23Z",
+  "ProcessId": 21216,
+  "LocalIpAddress": "127.0.0.1:2165",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:22:23.402 -07:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+  "ClientId": "photogallery.web",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rTJCSEQMU-yT6TukaR6TxCCZc8dWfQ_-IGyKIolIvbGrWLDfVJ7rSd9MVsxeYkBFbLGUVel4KmhC3jORE58K6LeG6GAdy90i09MdZ1IeL4sXjAlYuDXO3R543oxrspJXJNAvzT3B_RpqBxiS0MfHg1lvwm_dnVXdAPqz3VhTY1z1OAiwLZcHL8b97zCkKkL1tKQvrC-kkRLqJ9S0DkIDidZAvTjcs-PPn7cI6p15RMPgcjhxk6h5RETrvPHm-1gvEcYS3Ho13itbSAZTqBtcGEY1Qa08gEZ-lFg4gS6SoHum4VcnFJYdnOJ1qa1MM5W5Zc",
+  "Scope": "openid profile address roles subscriptionlevel country photogallery.api"
+}
+2018-04-25 05:22:23.426 -07:00 [DBG] Augmenting SignInContext
+2018-04-25 05:22:23.426 -07:00 [INF] AuthenticationScheme: idsrv signed in.
+2018-04-25 05:22:23.554 -07:00 [DBG] Request path /connect/token matched to endpoint type Token
+2018-04-25 05:22:23.557 -07:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2018-04-25 05:22:23.557 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2018-04-25 05:22:23.566 -07:00 [DBG] Start token request.
+2018-04-25 05:22:23.572 -07:00 [DBG] Start client validation
+2018-04-25 05:22:23.578 -07:00 [DBG] Start parsing Basic Authentication secret
+2018-04-25 05:22:23.581 -07:00 [DBG] Start parsing for secret in post body
+2018-04-25 05:22:23.582 -07:00 [DBG] Parser found secret: PostBodySecretParser
+2018-04-25 05:22:23.582 -07:00 [DBG] Secret id found: photogallery.web
+2018-04-25 05:22:23.592 -07:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2018-04-25 05:22:23.592 -07:00 [DBG] Client validation success
+2018-04-25 05:22:23.597 -07:00 [INF] {
+  "Name": "Client Authentication Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1010,
+  "ClientId": "photogallery.web",
+  "AuthenticationMethod": "SharedSecret",
+  "ActivityId": "0HLDAKSKQR0RQ:00000004",
+  "TimeStamp": "2018-04-25T12:22:23Z",
+  "ProcessId": 21216,
+  "LocalIpAddress": "127.0.0.1:2165",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:22:23.604 -07:00 [DBG] Start token request validation
+2018-04-25 05:22:23.615 -07:00 [DBG] Start validation of authorization code token request
+2018-04-25 05:22:23.632 -07:00 [DBG] IsActive called from: AuthorizationCodeValidation
+2018-04-25 05:22:23.632 -07:00 [DBG] Validation of authorization code token request success
+2018-04-25 05:22:23.638 -07:00 [INF] Token request validation success
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "GrantType": "authorization_code",
+  "AuthorizationCode": "247141861eddcc83f97a828db8aad74880439ad16a94fe4f397b98986ffa0f7f",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "client_secret": "***REDACTED***",
+    "code": "247141861eddcc83f97a828db8aad74880439ad16a94fe4f397b98986ffa0f7f",
+    "grant_type": "authorization_code",
+    "redirect_uri": "https://localhost:44309/signin-oidc"
+  }
+}
+2018-04-25 05:22:23.664 -07:00 [DBG] Getting claims for access token for client: photogallery.web
+2018-04-25 05:22:23.665 -07:00 [DBG] Getting claims for access token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7
+2018-04-25 05:22:23.665 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["role"] via ClaimsProviderAccessToken
+2018-04-25 05:22:23.665 -07:00 [DBG] Issued claims: ["role"]
+2018-04-25 05:22:23.671 -07:00 [DBG] Getting claims for identity token for subject: b7539694-97e7-4dfe-84da-b4256e1ff5c7 and client: photogallery.web
+2018-04-25 05:22:23.671 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via ClaimsProviderIdentityToken
+2018-04-25 05:22:23.671 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:22:23.677 -07:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "Endpoint": "Token",
+  "Scopes": "openid profile address roles subscriptionlevel country photogallery.api",
+  "GrantType": "authorization_code",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****7rrQ"
+    },
+    {
+      "TokenType": "access_token",
+      "TokenValue": "****GnLg"
+    }
+  ],
+  "ActivityId": "0HLDAKSKQR0RQ:00000004",
+  "TimeStamp": "2018-04-25T12:22:23Z",
+  "ProcessId": 21216,
+  "LocalIpAddress": "127.0.0.1:2165",
+  "RemoteIpAddress": "::1"
+}
+2018-04-25 05:22:23.678 -07:00 [DBG] Token request success.
+2018-04-25 05:22:23.705 -07:00 [DBG] Request path /connect/userinfo matched to endpoint type Userinfo
+2018-04-25 05:22:23.706 -07:00 [DBG] Endpoint enabled: Userinfo, successfully created handler: IdentityServer4.Endpoints.UserInfoEndpoint
+2018-04-25 05:22:23.706 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.UserInfoEndpoint for /connect/userinfo
+2018-04-25 05:22:23.713 -07:00 [DBG] Start userinfo request
+2018-04-25 05:22:23.717 -07:00 [DBG] Bearer token found in header
+2018-04-25 05:22:23.747 -07:00 [DBG] IsActive called from: AccessTokenValidation
+2018-04-25 05:22:23.747 -07:00 [DBG] Calling into custom token validator: IdentityServer4.Validation.DefaultCustomTokenValidator
+2018-04-25 05:22:23.752 -07:00 [DBG] Token validation success
+{
+  "ValidateLifetime": true,
+  "AccessTokenType": "Jwt",
+  "ExpectedScope": "openid",
+  "Claims": {
+    "nbf": 1524658943,
+    "exp": 1524662543,
+    "iss": "https://localhost:44331",
+    "aud": [
+      "https://localhost:44331/resources",
+      "photogallery.api"
+    ],
+    "client_id": "photogallery.web",
+    "sub": "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+    "auth_time": 1524658941,
+    "idp": "local",
+    "role": "PayingUser",
+    "scope": [
+      "openid",
+      "profile",
+      "address",
+      "roles",
+      "subscriptionlevel",
+      "country",
+      "photogallery.api"
+    ],
+    "amr": "pwd"
+  }
+}
+2018-04-25 05:22:23.753 -07:00 [DBG] IsActive called from: UserInfoRequestValidation
+2018-04-25 05:22:23.761 -07:00 [DBG] Creating userinfo response
+2018-04-25 05:22:23.767 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:22:23.770 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:22:23.775 -07:00 [DBG] Requested claim types: sub name family_name given_name middle_name nickname preferred_username profile picture website gender birthdate zoneinfo locale updated_at address role subscriptionlevel country
+2018-04-25 05:22:23.775 -07:00 [DBG] Scopes in access token: openid profile address roles subscriptionlevel country photogallery.api
+2018-04-25 05:22:23.775 -07:00 [DBG] Get profile called for subject b7539694-97e7-4dfe-84da-b4256e1ff5c7 from client Photo Gallery with claim types ["sub","name","family_name","given_name","middle_name","nickname","preferred_username","profile","picture","website","gender","birthdate","zoneinfo","locale","updated_at","address","role","subscriptionlevel","country"] via UserInfoEndpoint
+2018-04-25 05:22:23.775 -07:00 [DBG] Issued claims: ["name","given_name","family_name","website","address","role","subscriptionlevel","country"]
+2018-04-25 05:22:23.776 -07:00 [INF] Profile service returned to the following claim types: name given_name family_name website address role subscriptionlevel country
+2018-04-25 05:22:23.776 -07:00 [DBG] End userinfo request
+2018-04-25 05:22:24.153 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-25 05:22:24.153 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-25 05:22:24.153 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-25 05:22:24.153 -07:00 [DBG] Start discovery request
+2018-04-25 05:22:24.304 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-25 05:22:24.304 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-25 05:22:24.304 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-25 05:22:24.304 -07:00 [DBG] Start key discovery request

@@ -32,18 +32,18 @@ namespace PhotoGallery.Api.Controllers
         public async Task<IActionResult> GetAsync()
         {
             var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
-            //var photos = await repository.GetPhotosAsync();
+            ////var photos = await repository.GetPhotosAsync();
             var photos = await repository.GetPhotosAsync(ownerId);
             var photoDto = Mapper.Map<IEnumerable<PhotoDto>>(photos);
             return Ok(photoDto);
         }
         // GET: api/Photos/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "Get"), Authorize("IsImageOwner")]
         public async Task<IActionResult> GetAsync(Guid id)
         {
-            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
-            if (!await repository.IsOwnersPhoto(id, ownerId))
-                return Forbid();
+            //var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+            //if (!await repository.IsOwnersPhoto(id, ownerId))
+            //    return Forbid();
             if (id == null) return BadRequest();
             var photo = await repository.GetPhotoAsync(id);
             if (photo == null) return NotFound();
@@ -73,7 +73,9 @@ namespace PhotoGallery.Api.Controllers
 
             photo.FileName = fileName;
 
-            photo.OwnerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+
+            photo.OwnerId = ownerId;
 
             await repository.AddPhotoAsync(photo);
 
@@ -90,13 +92,13 @@ namespace PhotoGallery.Api.Controllers
         }
 
         // PUT: api/Photos/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize("IsImageOwner")]
         public async Task<IActionResult> PutAsync(Guid id, [FromBody]PhotoUpdateDto photoUpdateDto)
         {
-            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+            //var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
 
-            if (!await repository.IsOwnersPhoto(id, ownerId))
-                return Forbid();
+            //if (!await repository.IsOwnersPhoto(id, ownerId))
+            //    return Forbid();
 
             if (photoUpdateDto == null) return BadRequest();
 
@@ -115,15 +117,15 @@ namespace PhotoGallery.Api.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize("IsImageOwner")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {
             if (id == null) return BadRequest();
 
-            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+            //var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
 
-            if (!await repository.IsOwnersPhoto(id, ownerId))
-                return Forbid();
+            //if (!await repository.IsOwnersPhoto(id, ownerId))
+            //    return Forbid();
 
             var photo = await repository.GetPhotoAsync(id);
 

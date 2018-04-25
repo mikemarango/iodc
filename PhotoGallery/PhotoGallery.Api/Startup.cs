@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PhotoGallery.Api.Authorization;
 using PhotoGallery.Api.Services.Repositories;
 using PhotoGallery.Data;
 using PhotoGallery.Dto;
@@ -45,6 +47,16 @@ namespace PhotoGallery.Api
                     options.ApiSecret = "dcf84a90-98cf-48ec-af8b-50cb1f42d51b";
                 });
             services.AddHttpContextAccessor();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("IsImageOwner", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.AddRequirements(new ImageOwnerRequirement());
+                });
+            });
+
+            services.AddScoped<IAuthorizationHandler, ImageOwnerHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
