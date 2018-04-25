@@ -54,6 +54,7 @@ namespace PhotoGallery.Web.Controllers
         }
 
         // GET: Photos/Create
+        [Authorize(Roles = "PayingUser")]
         public ActionResult Create()
         {
             return View();
@@ -62,6 +63,7 @@ namespace PhotoGallery.Web.Controllers
         // POST: Photos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "PayingUser")]
         public async Task<IActionResult> Create(CreatePhotoViewModel createPhotoViewModel)
         {
             if (!ModelState.IsValid)

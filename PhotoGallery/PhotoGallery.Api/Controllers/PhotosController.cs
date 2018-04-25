@@ -53,6 +53,7 @@ namespace PhotoGallery.Api.Controllers
 
         // POST: api/Photos
         [HttpPost]
+        [Authorize(Roles = "PayingUser")]
         public async Task<IActionResult> PostAsync([FromBody]PhotoCreateDto photoCreateDto)
         {
             if (photoCreateDto == null) return BadRequest();
@@ -71,6 +72,8 @@ namespace PhotoGallery.Api.Controllers
             await System.IO.File.WriteAllBytesAsync(filePath, photoCreateDto.Bytes);
 
             photo.FileName = fileName;
+
+            photo.OwnerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
 
             await repository.AddPhotoAsync(photo);
 

@@ -24,7 +24,7 @@ namespace OIDC.IdentityServer
         {
             return new ApiResource[]
             {
-                new ApiResource("photogallery.api", "Photo Gallery API")
+                new ApiResource("photogallery.api", "Photo Gallery API", new[] { "role" } )
                 {
                     ApiSecrets = new[] { new Secret("dcf84a90-98cf-48ec-af8b-50cb1f42d51b".Sha256()) }
                 }

@@ -34,6 +34,8 @@ namespace PhotoGallery.Web.Services
         }
 
 
+        #region CRUD Tasks
+
         public async Task<IList<Photo>> GetPhotosAsync()
         {
             var httpClient = await GetClient();
@@ -67,22 +69,23 @@ namespace PhotoGallery.Web.Services
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task<HttpClient> GetClient()
-        {
-            var accessToken = await GetValidAccessToken();
-            if (!string.IsNullOrEmpty(accessToken))
-                httpClient.SetBearerToken(accessToken);
-            return await Task.FromResult(httpClient);
-        }
-
         public async Task<PhotoDto> AddPhotoAsync(PhotoCreateDto photoCreateDto)
         {
-            var serializePhotoCreateDto = JsonConvert.SerializeObject(photoCreateDto);
             var httpClient = await GetClient();
+            var serializePhotoCreateDto = JsonConvert.SerializeObject(photoCreateDto);
             var response = await httpClient.PostAsync($"api/photos", new StringContent(serializePhotoCreateDto, Encoding.Unicode, "application/json"));
             response.EnsureSuccessStatusCode();
             var photoDto = await response.Content.ReadAsAsync<PhotoDto>();
             return photoDto;
+        }
+
+        public async Task DeletePhotoAsync(Guid id)
+        {
+            var httpClient = await GetClient();
+            var response = await httpClient.DeleteAsync($"api/photos/{id}");
+            if (response.StatusCode != HttpStatusCode.NoContent)
+                return;
+            response.EnsureSuccessStatusCode();
         }
 
         public async Task<string> GetAddressAsync(DiscoveryClient discoveryClient)
@@ -97,6 +100,18 @@ namespace PhotoGallery.Web.Services
             return address;
         }
 
+        #endregion
+
+        #region HTTP Tasks
+
+        public async Task<HttpClient> GetClient()
+        {
+            var accessToken = await GetValidAccessToken();
+            if (!string.IsNullOrEmpty(accessToken))
+                httpClient.SetBearerToken(accessToken);
+            return await Task.FromResult(httpClient);
+        }
+
         private async Task<string> GetValidAccessToken()
         {
             var currentContext = contextAccessor.HttpContext;
@@ -106,15 +121,6 @@ namespace PhotoGallery.Web.Services
             var accessToken = await (expiresAt < DateTime.UtcNow ?
                 RenewTokens() : currentContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken));
             return accessToken;
-        }
-
-        public async Task DeletePhotoAsync(Guid id)
-        {
-            var httpClient = await GetClient();
-            var response = await httpClient.DeleteAsync($"api/photos/{id}");
-            if (response.StatusCode != HttpStatusCode.NoContent)
-                return;
-            response.EnsureSuccessStatusCode();
         }
 
         private async Task<string> RenewTokens()
@@ -157,5 +163,7 @@ namespace PhotoGallery.Web.Services
                     tokenResult.Exception);
             }
         }
+
+        #endregion
     }
 }
