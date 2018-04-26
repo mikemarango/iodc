@@ -44,6 +44,7 @@ namespace OIDC.IdentityServer
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
             })
+            .AddUserStore()
             .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("SigningCredentialCertificateThumbPrint")));
             //.AddTestUsers(TestUsers.Users);
 

@@ -13,9 +13,9 @@ namespace OIDC.IdentityServer.Services.Repository
         Task<User> GetUserByProviderAsync(string loginProvider, string providerKey);
         Task<User> GetUserBySubjectIdAsync(string subjectId);
         Task<User> GetUserByUsernameAsync(string username);
-        Task<IList<Claim>> GetUserClaimsBySubjectId(string subjectId);
-        Task<IList<Login>> GetUserLoginsBySubjectId(string subjectId);
-        Task<bool> IsUserActive(string subjectId);
+        Task<IEnumerable<Claim>> GetUserClaimsBySubjectId(string subjectId);
+        Task<IEnumerable<Login>> GetUserLoginsBySubjectId(string subjectId);
+        Task<bool> IsUserActiveAsync(string subjectId);
         Task<bool> SaveAsync();
         Task<bool> ValidateUserCredentials(string username, string password);
     }

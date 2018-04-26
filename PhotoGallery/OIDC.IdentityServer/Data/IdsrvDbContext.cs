@@ -17,12 +17,6 @@ namespace OIDC.IdentityServer.Data
         public DbSet<Claim> Claims { get; set; }
         public DbSet<Login> Logins { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.EnableSensitiveDataLogging(true);
-            base.OnConfiguring(optionsBuilder);
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasKey(u => u.SubjectId).HasName("Users");

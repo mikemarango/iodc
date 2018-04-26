@@ -38,7 +38,7 @@ namespace OIDC.IdentityServer.Services.Repository
         {
             return await Context.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
-        public async Task<IList<Claim>> GetUserClaimsBySubjectId(string subjectId)
+        public async Task<IEnumerable<Claim>> GetUserClaimsBySubjectId(string subjectId)
         {
             var user = await Context.Users.Include("Claims").FirstOrDefaultAsync(u => u.SubjectId == subjectId);
             if (user == null)
@@ -47,7 +47,7 @@ namespace OIDC.IdentityServer.Services.Repository
             }
             return user.Claims.ToList();
         }
-        public async Task<IList<Login>> GetUserLoginsBySubjectId(string subjectId)
+        public async Task<IEnumerable<Login>> GetUserLoginsBySubjectId(string subjectId)
         {
             var user = await Context.Users.Include("Logins")
                 .FirstOrDefaultAsync(u => u.SubjectId == subjectId);
@@ -87,7 +87,7 @@ namespace OIDC.IdentityServer.Services.Repository
             if (user == null) return false;
             return (user.Password == password && !string.IsNullOrWhiteSpace(password));
         }
-        public async Task<bool> IsUserActive(string subjectId)
+        public async Task<bool> IsUserActiveAsync(string subjectId)
         {
             var user = await GetUserBySubjectIdAsync(subjectId);
             return user.IsActive;
