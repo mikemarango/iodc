@@ -23672,3 +23672,15 @@
 2018-04-26 00:49:22.635 -07:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
 2018-04-26 00:50:39.135 -07:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
 2018-04-26 00:50:50.888 -07:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
+2018-04-26 06:59:16.446 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-26 06:59:16.578 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-26 06:59:16.582 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-26 06:59:16.582 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-26 06:59:16.582 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-26 06:59:16.582 -07:00 [DBG] Using idsrv as default scheme for forbid
+2018-04-26 07:09:06.619 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-26 07:09:06.689 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-26 07:09:06.694 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-26 07:09:06.694 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-26 07:09:06.694 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-26 07:09:06.694 -07:00 [DBG] Using idsrv as default scheme for forbid

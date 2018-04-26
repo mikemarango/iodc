@@ -2,12 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
-
-namespace IdentityServer4.Quickstart.UI
+namespace OIDC.IdentityServer.Controllers.Account
 {
-    public class ErrorViewModel
+    public class ExternalProvider
     {
-        public ErrorMessage Error { get; set; }
+        public string DisplayName { get; set; }
+        public string AuthenticationScheme { get; set; }
     }
 }

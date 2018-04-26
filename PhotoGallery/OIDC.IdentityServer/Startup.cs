@@ -4,7 +4,6 @@
 
 using System;
 using IdentityServer4;
-using IdentityServer4.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 using Microsoft.EntityFrameworkCore;
 using OIDC.IdentityServer.Data;
 using OIDC.IdentityServer.Services.Repository;
+using OIDC.IdentityServer.Controllers;
 
 namespace OIDC.IdentityServer
 {
@@ -44,8 +44,8 @@ namespace OIDC.IdentityServer
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
             })
-            .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("SigningCredentialCertificateThumbPrint")))
-            .AddTestUsers(TestUsers.Users);
+            .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("SigningCredentialCertificateThumbPrint")));
+            //.AddTestUsers(TestUsers.Users);
 
             services.AddDbContextPool<IdsrvDbContext>(options =>
             {
@@ -55,6 +55,7 @@ namespace OIDC.IdentityServer
 
             services.AddScoped<IUserRepository, UserRepository>();
 
+            services.AddHttpContextAccessor();
 
             // in-memory, code config
             builder.AddInMemoryIdentityResources(Config.GetIdentityResources());

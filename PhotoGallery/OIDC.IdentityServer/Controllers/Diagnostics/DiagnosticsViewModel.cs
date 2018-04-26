@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace IdentityServer4.Quickstart.UI
+namespace OIDC.IdentityServer.Controllers.Diagnostics
 {
     public class DiagnosticsViewModel
     {
