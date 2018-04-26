@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.EntityFrameworkCore;
+using OIDC.IdentityServer.Data;
+using OIDC.IdentityServer.Services.Repository;
 
 namespace OIDC.IdentityServer
 {
@@ -43,6 +46,15 @@ namespace OIDC.IdentityServer
             })
             .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("SigningCredentialCertificateThumbPrint")))
             .AddTestUsers(TestUsers.Users);
+
+            services.AddDbContextPool<IdsrvDbContext>(options =>
+            {
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"),
+                    sqlOptions => sqlOptions.MigrationsAssembly("OIDC.IdentityServer"));
+            });
+
+            services.AddScoped<IUserRepository, UserRepository>();
+
 
             // in-memory, code config
             builder.AddInMemoryIdentityResources(Config.GetIdentityResources());
@@ -88,7 +100,6 @@ namespace OIDC.IdentityServer
                 return certCollection[0];
             }
         }
-
 
         public void Configure(IApplicationBuilder app)
         {
