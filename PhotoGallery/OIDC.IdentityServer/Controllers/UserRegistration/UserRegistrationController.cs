@@ -65,7 +65,7 @@ namespace OIDC.IdentityServer.Controllers.UserRegistration
                     });
                 }
                 // add it through the repository
-                await UserRepository.AddUser(newUser);
+                await UserRepository.AddUserAsync(newUser);
 
                 if (!await UserRepository.SaveAsync())
                 {

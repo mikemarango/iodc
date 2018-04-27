@@ -22,7 +22,7 @@ namespace OIDC.IdentityServer.Services.Profile
         public async Task GetProfileDataAsync(ProfileDataRequestContext context)
         {
             var subjectId = context.Subject.GetSubjectId();
-            var userClaims = await UserRepository.GetUserClaimsBySubjectId(subjectId);
+            var userClaims = await UserRepository.GetUserClaimsBySubjectIdAsync(subjectId);
             context.IssuedClaims = userClaims.Select(claim => new Claim(claim.ClaimType, claim.ClaimValue)).ToList();
         }
 

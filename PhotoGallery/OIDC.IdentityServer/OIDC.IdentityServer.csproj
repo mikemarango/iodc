@@ -2,11 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>33c2c2d1-04fe-4460-95f4-b9e56b79c193</UserSecretsId>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0-preview2-final" />
     <PackageReference Include="IdentityServer4" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0-preview2-final" />
 
     <PackageReference Include="Serilog" Version="2.6.0" />

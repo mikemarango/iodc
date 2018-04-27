@@ -72,6 +72,74 @@ namespace OIDC.IdentityServer.Controllers.Account
 
             return View(vm);
         }
+        
+        [HttpGet]
+        public IActionResult AdditionalAuthenticationFactor(string returnUrl, bool rememberLogin)
+        {
+            // view model in account
+            var vm = new AuthenticationVerificationViewModel()
+            {
+                RememberLogin = rememberLogin,
+                ReturnUrl = returnUrl
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdditionalAuthenticationFactor(AuthenticationVerificationViewModel authenticationVerification)
+        {
+            if (ModelState.IsValid)
+            {
+                // read identity from the temporary cookie
+                var info = await HttpContext.AuthenticateAsync("idsrv.2FA");
+                var tempUser = info?.Principal;
+                if (tempUser == null)
+                {
+                    throw new Exception("2FA error");
+                }
+
+                var user = await userRepository.GetUserBySubjectIdAsync(tempUser.GetSubjectId());
+
+                // ... check code for user
+                if (authenticationVerification.Code != "123")
+                {
+                    ModelState.AddModelError("code", "2FA code is invalid.");
+                    return View(authenticationVerification);
+                }
+
+                // login the user
+                AuthenticationProperties props = null;
+                if (AccountOptions.AllowRememberLogin && authenticationVerification.RememberLogin)
+                {
+                    props = new AuthenticationProperties
+                    {
+                        IsPersistent = true,
+                        ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
+                    };
+                };
+
+                // issue authentication cookie for user
+                await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.SubjectId, user.Username));
+                await HttpContext.SignInAsync(user.SubjectId, user.Username, props);
+
+                // delete temporary cookie used for 2FA
+                await HttpContext.SignOutAsync("idsrv.2FA");
+
+                if (_interaction.IsValidReturnUrl(authenticationVerification.ReturnUrl) || Url.IsLocalUrl(authenticationVerification.ReturnUrl))
+                {
+                    return Redirect(authenticationVerification.ReturnUrl);
+                }
+
+                return Redirect("~/");
+
+            }
+
+            // something went wrong, show an error            
+            return View(authenticationVerification);
+        }
+
 
         /// <summary>
         /// Handle postback from username/password login
@@ -104,32 +172,53 @@ namespace OIDC.IdentityServer.Controllers.Account
             if (ModelState.IsValid)
             {
                 // validate username/password against in-memory store
-                if (await userRepository.ValidateUserCredentials(model.Username, model.Password))
+                if (await userRepository.ValidateUserCredentialsAsync(model.Username, model.Password))
                 {
                     var user = await userRepository.GetUserByUsernameAsync(model.Username);
-                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.SubjectId, user.Username));
+                    var id = new ClaimsIdentity();
+                    id.AddClaim(new Claim(JwtClaimTypes.Subject, user.SubjectId));
 
-                    // only set explicit expiration here if user chooses "remember me". 
-                    // otherwise we rely upon expiration configured in cookie middleware.
-                    AuthenticationProperties props = null;
-                    if (AccountOptions.AllowRememberLogin && model.RememberLogin)
-                    {
-                        props = new AuthenticationProperties
+                    await HttpContext.SignInAsync("idsrv.2FA", new ClaimsPrincipal(id));
+
+                    // send code...
+
+                    var redirectToAdditionalFactorUrl =
+                        Url.Action("AdditionalAuthenticationFactor",
+                        new
                         {
-                            IsPersistent = true,
-                            ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
-                        };
-                    };
+                            returnUrl = model.ReturnUrl,
+                            rememberLogin = model.RememberLogin
+                        });
 
-                    // issue authentication cookie with subject ID and username
-                    await HttpContext.SignInAsync(user.SubjectId, user.Username, props);
 
-                    // make sure the returnUrl is still valid, and if so redirect back to authorize endpoint or a local page
-                    // the IsLocalUrl check is only necessary if you want to support additional local pages, otherwise IsValidReturnUrl is more strict
                     if (_interaction.IsValidReturnUrl(model.ReturnUrl) || Url.IsLocalUrl(model.ReturnUrl))
                     {
-                        return Redirect(model.ReturnUrl);
+                        return Redirect(redirectToAdditionalFactorUrl);
                     }
+
+                    //await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.SubjectId, user.Username));
+
+                    //// only set explicit expiration here if user chooses "remember me". 
+                    //// otherwise we rely upon expiration configured in cookie middleware.
+                    //AuthenticationProperties props = null;
+                    //if (AccountOptions.AllowRememberLogin && model.RememberLogin)
+                    //{
+                    //    props = new AuthenticationProperties
+                    //    {
+                    //        IsPersistent = true,
+                    //        ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
+                    //    };
+                    //};
+
+                    //// issue authentication cookie with subject ID and username
+                    //await HttpContext.SignInAsync(user.SubjectId, user.Username, props);
+
+                    //// make sure the returnUrl is still valid, and if so redirect back to authorize endpoint or a local page
+                    //// the IsLocalUrl check is only necessary if you want to support additional local pages, otherwise IsValidReturnUrl is more strict
+                    //if (_interaction.IsValidReturnUrl(model.ReturnUrl) || Url.IsLocalUrl(model.ReturnUrl))
+                    //{
+                    //    return Redirect(model.ReturnUrl);
+                    //}
 
                     return Redirect("~/");
                 }
@@ -184,34 +273,96 @@ namespace OIDC.IdentityServer.Controllers.Account
                 throw new Exception("External authentication error");
             }
 
-            // lookup our user and external provider info
-            var (user, provider, providerUserId, claims) = FindUserFromExternalProvider(result);
-            if (user == null)
+            //retrieve claims of the external user
+            var externalUser = result.Principal;
+            var claims = externalUser.Claims.ToList();
+
+            // try to determine the unique id of the external user (issued by the provider)
+            // the most common claim type for that are the sub claim and the NameIdentifier
+            // depending on the external provider, some other claim type might be used
+            var userIdClaim = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.Subject);
+            if (userIdClaim == null)
             {
-                // this might be where you might initiate a custom workflow for user registration
-                // in this sample we don't show how that would be done, as our sample implementation
-                // simply auto-provisions new external user
-                user = AutoProvisionUser(provider, providerUserId, claims);
+                userIdClaim = claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
+            }
+            if (userIdClaim == null)
+            {
+                throw new Exception("Unknown userid");
             }
 
-            // this allows us to collect any additonal claims or properties
-            // for the specific prtotocols used and store them in the local auth cookie.
-            // this is typically used to store data needed for signout from those protocols.
-            var additionalLocalClaims = new List<Claim>();
-            var localSignInProps = new AuthenticationProperties();
-            ProcessLoginCallbackForOidc(result, additionalLocalClaims, localSignInProps);
-            ProcessLoginCallbackForWsFed(result, additionalLocalClaims, localSignInProps);
-            ProcessLoginCallbackForSaml2p(result, additionalLocalClaims, localSignInProps);
+            // remove the user id claim from the claims collection and move to the userId property
+            // also set the name of the external authentication provider
+            claims.Remove(userIdClaim);
+            var provider = result.Properties.Items["scheme"];
+            var userId = userIdClaim.Value;
+
+            var returnUrl = result.Properties.Items["returnUrl"];
+
+
+            // lookup our user and external provider info
+            var user = await userRepository.GetUserByProviderAsync(provider, userId);
+            if (user == null)
+            {
+                // user wasn't found by provider, but maybe one exists with the same email address?  
+                if (provider == "Google")
+                {
+                    // email claim from Facebook
+                    var email = claims.FirstOrDefault(c =>
+                    c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress");
+                    if (email != null)
+                    {
+                        var userByEmail = await userRepository.GetUserByEmailAsync(email.Value);
+                        if (userByEmail != null)
+                        {
+                            // add Facebook as a provider for this user
+                            await userRepository.AddUserLoginAsync(userByEmail.SubjectId, provider, userId);
+
+                            if (!await userRepository.SaveAsync())
+                            {
+                                throw new Exception($"Adding a login for a user failed.");
+                            }
+
+                            // redirect to ExternalLoginCallback
+                            var continueWithUrlAfterAddingUserLogin =
+                                Url.Action("ExternalLoginCallback", new { returnUrl });
+
+                            return Redirect(continueWithUrlAfterAddingUserLogin);
+                        }
+                    }
+                }
+
+                var returnUrlAfterRegistration = Url.Action("ExternalLoginCallback", new { returnUrl });
+                var continueWithUrl = Url.Action("RegisterUser", "UserRegistration", new { returnUrl = returnUrlAfterRegistration, provider, providerUserId = userId });
+                return Redirect(continueWithUrl);
+            }
+
+            var additionalClaims = new List<Claim>();
+
+            // if the external system sent a session id claim, copy it over
+            // so we can use it for single sign-out
+            var sid = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.SessionId);
+            if (sid != null)
+            {
+                additionalClaims.Add(new Claim(JwtClaimTypes.SessionId, sid.Value));
+            }
+
+            // if the external provider issued an id_token, we'll keep it for signout
+            AuthenticationProperties props = null;
+            var id_token = result.Properties.GetTokenValue("id_token");
+            if (id_token != null)
+            {
+                props = new AuthenticationProperties();
+                props.StoreTokens(new[] { new AuthenticationToken { Name = "id_token", Value = id_token } });
+            }
 
             // issue authentication cookie for user
-            await _events.RaiseAsync(new UserLoginSuccessEvent(provider, providerUserId, user.SubjectId, user.Username));
-            await HttpContext.SignInAsync(user.SubjectId, user.Username, provider, localSignInProps, additionalLocalClaims.ToArray());
+            await _events.RaiseAsync(new UserLoginSuccessEvent(provider, userId, user.SubjectId, user.Username));
+            await HttpContext.SignInAsync(user.SubjectId, user.Username, provider, props, additionalClaims.ToArray());
 
             // delete temporary cookie used during external authentication
             await HttpContext.SignOutAsync(IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme);
 
             // validate return URL and redirect back to authorization endpoint or a local page
-            var returnUrl = result.Properties.Items["returnUrl"];
             if (_interaction.IsValidReturnUrl(returnUrl) || Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);

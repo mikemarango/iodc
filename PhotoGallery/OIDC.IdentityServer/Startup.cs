@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using OIDC.IdentityServer.Data;
 using OIDC.IdentityServer.Services.Repository;
 using OIDC.IdentityServer.Controllers;
+using OIDC.IdentityServer.Services.Options;
 
 namespace OIDC.IdentityServer
 {
@@ -36,6 +37,8 @@ namespace OIDC.IdentityServer
                 options.AutomaticAuthentication = false;
                 options.AuthenticationDisplayName = "Windows";
             });
+
+            //services.Configure<FacebookAuth>(Configuration.GetSection("FacebookAuth"));
 
             var builder = services.AddIdentityServer(options =>
             {
@@ -83,8 +86,14 @@ namespace OIDC.IdentityServer
                 {
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    options.ClientId = "708996912208-9m4dkjb5hscn7cjrn5u0r4tbgkbj1fko.apps.googleusercontent.com";
-                    options.ClientSecret = "wdfPY6t8H8cecgjlxud__4Gh";
+                    options.ClientId = Configuration["GoogleOath:ClientId"];
+                    options.ClientSecret = Configuration["GoogleOath:ClientSecret"];
+                })
+                .AddCookie("idsrv.2FA")
+                .AddFacebook(options =>
+                {
+                    options.AppId = Configuration["FacebookAuth:AppId"];
+                    options.AppSecret = Configuration["FacebookAuth:AppSecret"];
                 });
         }
 

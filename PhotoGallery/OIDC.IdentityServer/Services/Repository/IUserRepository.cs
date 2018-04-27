@@ -6,17 +6,17 @@ namespace OIDC.IdentityServer.Services.Repository
 {
     public interface IUserRepository
     {
-        Task AddUser(User user);
-        Task AddUserClaim(string subjectId, string claimType, string claimValue);
-        Task AddUserLogin(string subjectId, string loginProvider, string providerKey);
+        Task AddUserAsync(User user);
+        Task AddUserClaimAsync(string subjectId, string claimType, string claimValue);
+        Task AddUserLoginAsync(string subjectId, string loginProvider, string providerKey);
         Task<User> GetUserByEmailAsync(string email);
         Task<User> GetUserByProviderAsync(string loginProvider, string providerKey);
         Task<User> GetUserBySubjectIdAsync(string subjectId);
         Task<User> GetUserByUsernameAsync(string username);
-        Task<IEnumerable<Claim>> GetUserClaimsBySubjectId(string subjectId);
-        Task<IEnumerable<Login>> GetUserLoginsBySubjectId(string subjectId);
+        Task<IEnumerable<Claim>> GetUserClaimsBySubjectIdAsync(string subjectId);
+        Task<IEnumerable<Login>> GetUserLoginsBySubjectIdAsync(string subjectId);
         Task<bool> IsUserActiveAsync(string subjectId);
         Task<bool> SaveAsync();
-        Task<bool> ValidateUserCredentials(string username, string password);
+        Task<bool> ValidateUserCredentialsAsync(string username, string password);
     }
 }
