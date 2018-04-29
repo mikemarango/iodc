@@ -14,6 +14,7 @@ using OIDC.IdentityServer.Data;
 using OIDC.IdentityServer.Services.Repository;
 using OIDC.IdentityServer.Controllers;
 using OIDC.IdentityServer.Services.Options;
+using System.Reflection;
 
 namespace OIDC.IdentityServer
 {
@@ -48,23 +49,42 @@ namespace OIDC.IdentityServer
                 options.Events.RaiseSuccessEvents = true;
             })
             .AddUserStore()
-            .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("SigningCredentialCertificateThumbPrint")));
+            .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("oidc")))
+            .AddConfigurationStore(options =>
+            {
+                options.ConfigureDbContext = context => context
+                .UseSqlite(Configuration.GetConnectionString("ConfigurationConnection"), config =>
+                {
+                    config.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                });
+            })
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = context => context
+                .UseSqlite(Configuration.GetConnectionString("ConfigurationConnection"), config =>
+                {
+                    config.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                });
+            });
+            
             //.AddTestUsers(TestUsers.Users);
 
             services.AddDbContextPool<IdsrvDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"),
                     sqlOptions => sqlOptions.MigrationsAssembly("OIDC.IdentityServer"));
+                //options.UseSqlite(Configuration.GetConnectionString("ConfigurationConnection"),
+                //    sqlOptions => sqlOptions.MigrationsAssembly("OIDC.IdentityServer"));
             });
 
             services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddHttpContextAccessor();
 
-            // in-memory, code config
-            builder.AddInMemoryIdentityResources(Config.GetIdentityResources());
-            builder.AddInMemoryApiResources(Config.GetApis());
-            builder.AddInMemoryClients(Config.GetClients());
+            //// in-memory, code config
+            //builder.AddInMemoryIdentityResources(Config.GetIdentityResources());
+            //builder.AddInMemoryApiResources(Config.GetApis());
+            //builder.AddInMemoryClients(Config.GetClients());
 
             //// in-memory, json config
             //builder.AddInMemoryIdentityResources(Configuration.GetSection("IdentityResources"));

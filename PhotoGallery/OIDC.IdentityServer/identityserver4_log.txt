@@ -27251,3 +27251,135 @@ System.InvalidOperationException: No sign-in authentication handler is registere
 2018-04-27 08:04:40.235 -07:00 [DBG] Introspection request validation successful.
 2018-04-27 08:04:40.243 -07:00 [DBG] Creating introspection response for active token.
 2018-04-27 08:04:40.245 -07:00 [INF] Success token introspection. Token active: true, for API name: photogallery.api
+2018-04-27 10:08:29.454 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-27 10:08:29.522 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-27 10:08:29.527 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-27 10:08:29.528 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-27 10:08:29.528 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-27 10:08:29.528 -07:00 [DBG] Using idsrv as default scheme for forbid
+2018-04-27 10:08:30.121 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-27 10:08:30.129 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-27 10:08:30.130 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-27 10:08:30.140 -07:00 [DBG] Start discovery request
+2018-04-27 10:08:30.374 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-27 10:08:30.374 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-27 10:08:30.374 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-27 10:08:30.378 -07:00 [DBG] Start key discovery request
+2018-04-27 10:08:30.543 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-27 10:08:30.683 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-27 10:08:30.684 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-27 10:08:30.688 -07:00 [DBG] Start authorize request
+2018-04-27 10:08:30.701 -07:00 [DBG] No user present in authorize request
+2018-04-27 10:08:30.708 -07:00 [DBG] Start authorize request protocol validation
+2018-04-27 10:08:30.725 -07:00 [DBG] Checking for PKCE parameters
+2018-04-27 10:08:30.728 -07:00 [DBG] No PKCE used.
+2018-04-27 10:08:30.783 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-27 10:08:30.796 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country offline_access",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rRFFW4NNB-tn-cmrGYSZvGu3OC_YzeQg72HiMXwEDhhSvTY4tfj-5tcnrGcPPiew9zuF8x-ER4IRU2jYgu7vn8D4vXHsIPtGp5oTuL8YhoRm-4bD91WQC087QrWcs_SQs_Nzcl1m2zFF-bBDXvMgCiw7MRWaZJcTrW_kEFD3i1Kn22zRAAStXwcwUJFOd5GHFr6-vQN0GEHoKmCXqfTJchjXusKuKEvRlpJM_NLgRuKJDIH6PuwcNaI2SvANYQFXsLP-3zpIy7pHpD3f58ZOxrw75T22soqwirVx8knZ1sbxUVgA0ED_NbfS4-MAIrXOc8",
+  "Nonce": "636604457104683594.NThlMWRlODUtZGU2ZC00NzEzLWJkZjktZjcxNjdkMTJkZTdhNGQxYjdjYjYtZGI1Mi00YmIyLWIyZmEtZjg5MTUxMDJmNTdj",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country offline_access",
+    "response_mode": "form_post",
+    "nonce": "636604457104683594.NThlMWRlODUtZGU2ZC00NzEzLWJkZjktZjcxNjdkMTJkZTdhNGQxYjdjYjYtZGI1Mi00YmIyLWIyZmEtZjg5MTUxMDJmNTdj",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rRFFW4NNB-tn-cmrGYSZvGu3OC_YzeQg72HiMXwEDhhSvTY4tfj-5tcnrGcPPiew9zuF8x-ER4IRU2jYgu7vn8D4vXHsIPtGp5oTuL8YhoRm-4bD91WQC087QrWcs_SQs_Nzcl1m2zFF-bBDXvMgCiw7MRWaZJcTrW_kEFD3i1Kn22zRAAStXwcwUJFOd5GHFr6-vQN0GEHoKmCXqfTJchjXusKuKEvRlpJM_NLgRuKJDIH6PuwcNaI2SvANYQFXsLP-3zpIy7pHpD3f58ZOxrw75T22soqwirVx8knZ1sbxUVgA0ED_NbfS4-MAIrXOc8",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-27 10:08:30.807 -07:00 [INF] Showing login: User is not authenticated
+2018-04-27 10:08:36.722 -07:00 [DBG] Start authorize request protocol validation
+2018-04-27 10:08:36.722 -07:00 [DBG] Checking for PKCE parameters
+2018-04-27 10:08:36.722 -07:00 [DBG] No PKCE used.
+2018-04-27 10:08:36.723 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-27 10:08:52.193 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-27 10:08:52.194 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-27 10:08:52.194 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-27 10:08:52.194 -07:00 [DBG] Start discovery request
+2018-04-27 10:09:19.126 -07:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2018-04-27 10:09:19.200 -07:00 [DBG] Using idsrv as default scheme for authentication
+2018-04-27 10:09:19.205 -07:00 [DBG] Using idsrv as default scheme for sign-in
+2018-04-27 10:09:19.205 -07:00 [DBG] Using idsrv as default scheme for sign-out
+2018-04-27 10:09:19.206 -07:00 [DBG] Using idsrv as default scheme for challenge
+2018-04-27 10:09:19.206 -07:00 [DBG] Using idsrv as default scheme for forbid
+2018-04-27 10:09:20.630 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-27 10:09:20.637 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-27 10:09:20.637 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-27 10:09:20.641 -07:00 [DBG] Start discovery request
+2018-04-27 10:09:20.817 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-27 10:09:20.818 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-27 10:09:20.818 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-27 10:09:20.821 -07:00 [DBG] Start key discovery request
+2018-04-27 10:09:20.936 -07:00 [DBG] Request path /connect/authorize matched to endpoint type Authorize
+2018-04-27 10:09:21.058 -07:00 [DBG] Endpoint enabled: Authorize, successfully created handler: IdentityServer4.Endpoints.AuthorizeEndpoint
+2018-04-27 10:09:21.058 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-04-27 10:09:21.063 -07:00 [DBG] Start authorize request
+2018-04-27 10:09:21.074 -07:00 [DBG] No user present in authorize request
+2018-04-27 10:09:21.079 -07:00 [DBG] Start authorize request protocol validation
+2018-04-27 10:09:21.095 -07:00 [DBG] Checking for PKCE parameters
+2018-04-27 10:09:21.097 -07:00 [DBG] No PKCE used.
+2018-04-27 10:09:21.141 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-27 10:09:21.154 -07:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "photogallery.web",
+  "ClientName": "Photo Gallery",
+  "RedirectUri": "https://localhost:44309/signin-oidc",
+  "AllowedRedirectUris": [
+    "https://localhost:44309/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "code id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "hybrid",
+  "RequestedScopes": "openid profile address roles photogallery.api subscriptionlevel country offline_access",
+  "State": "CfDJ8JcaR7STfIRAkmcq8y0W0rTsorxiPFnEDcIC21_OVgWiy3LCy6bBv4XoqxvMXfjeCmgT_-TyDDhcst-Hg-bFfpUWXXCy1xfcuEDBtyelf5hkbdNKPQpcg4u8cLOz2pygf1voLgjXauWfVLk7fKGbUkkeTCwbs5WUvNimYddhza9GOYMkvsT1ezztCr818wiKluOXXaZsm3VeApYhXBLIbJi5MJPueteW1pQuQ2712yQu84EFLL52XpLusfGLQnfVB0E1sMGHcvAywVmw6CFhb5VF1j9Jn43v7FzrO7N4LfAkgqE31JTrIX-resPNYb_VIgBgHg8tWicz-d2rxJ4vHsQ",
+  "Nonce": "636604457608985074.ZmZjMjRhZTUtNDZiYy00N2Q0LWEyODEtZGMxNTQ4NjYxYjRmYTQzYTQyMTctZTVlYS00NDU5LWIxODEtM2QwNmE1Zjg4YzA1",
+  "Raw": {
+    "client_id": "photogallery.web",
+    "redirect_uri": "https://localhost:44309/signin-oidc",
+    "response_type": "code id_token",
+    "scope": "openid profile address roles photogallery.api subscriptionlevel country offline_access",
+    "response_mode": "form_post",
+    "nonce": "636604457608985074.ZmZjMjRhZTUtNDZiYy00N2Q0LWEyODEtZGMxNTQ4NjYxYjRmYTQzYTQyMTctZTVlYS00NDU5LWIxODEtM2QwNmE1Zjg4YzA1",
+    "state": "CfDJ8JcaR7STfIRAkmcq8y0W0rTsorxiPFnEDcIC21_OVgWiy3LCy6bBv4XoqxvMXfjeCmgT_-TyDDhcst-Hg-bFfpUWXXCy1xfcuEDBtyelf5hkbdNKPQpcg4u8cLOz2pygf1voLgjXauWfVLk7fKGbUkkeTCwbs5WUvNimYddhza9GOYMkvsT1ezztCr818wiKluOXXaZsm3VeApYhXBLIbJi5MJPueteW1pQuQ2712yQu84EFLL52XpLusfGLQnfVB0E1sMGHcvAywVmw6CFhb5VF1j9Jn43v7FzrO7N4LfAkgqE31JTrIX-resPNYb_VIgBgHg8tWicz-d2rxJ4vHsQ",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-04-27 10:09:21.163 -07:00 [INF] Showing login: User is not authenticated
+2018-04-27 10:09:21.228 -07:00 [DBG] Start authorize request protocol validation
+2018-04-27 10:09:21.228 -07:00 [DBG] Checking for PKCE parameters
+2018-04-27 10:09:21.228 -07:00 [DBG] No PKCE used.
+2018-04-27 10:09:21.228 -07:00 [DBG] Calling into custom validator: IdentityServer4.Validation.DefaultCustomAuthorizeRequestValidator
+2018-04-27 10:09:32.378 -07:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2018-04-27 10:09:32.379 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2018-04-27 10:09:32.379 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-04-27 10:09:32.379 -07:00 [DBG] Start discovery request
+2018-04-27 10:09:49.802 -07:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2018-04-27 10:09:49.803 -07:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2018-04-27 10:09:49.803 -07:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-04-27 10:09:49.803 -07:00 [DBG] Start key discovery request
+2018-04-27 13:02:47.439 -07:00 [ERR] An error occured while seeding the database
+System.InvalidOperationException: No service for type 'OIDC.IdentityServer.Data.ConfigurationContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at OIDC.IdentityServer.Program.Main(String[] args) in C:\Users\mikem\Source\Repos\iodc\PhotoGallery\OIDC.IdentityServer\Program.cs:line 30
+2018-04-27 13:03:08.677 -07:00 [ERR] An error occured while seeding the database
+System.InvalidOperationException: No service for type 'OIDC.IdentityServer.Data.ConfigurationContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at OIDC.IdentityServer.Program.Main(String[] args) in C:\Users\mikem\Source\Repos\iodc\PhotoGallery\OIDC.IdentityServer\Program.cs:line 30
