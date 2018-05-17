@@ -127,7 +127,7 @@ namespace PhotoGallery.Api.Controllers
 
             var photo = await repository.GetPhotoAsync(id);
 
-            await repository.DeletePhoto(photo);
+            await repository.DeletePhotoAsync(photo);
 
             return NoContent();
         }

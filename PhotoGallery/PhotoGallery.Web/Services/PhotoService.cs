@@ -127,6 +127,7 @@ namespace PhotoGallery.Web.Services
         {
             var currentContext = contextAccessor.HttpContext;
             var discoveryClient = new DiscoveryClient(configuration.GetConnectionString("identityServerUri"));
+            //var discoveryClient = new DiscoveryClient(configuration.GetConnectionString("identityServerUri"));
             var metaDataResponse = await discoveryClient.GetAsync();
             var tokenClient = new TokenClient(metaDataResponse.TokenEndpoint, configuration["ClientIdOnIdentityServer"], configuration["ClientSecretOnIdentityServer"]);
             var currentRefreshToken = await currentContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);

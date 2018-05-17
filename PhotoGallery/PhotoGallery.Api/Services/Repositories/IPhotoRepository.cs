@@ -8,7 +8,7 @@ namespace PhotoGallery.Api.Services.Repositories
     public interface IPhotoRepository
     {
         Task AddPhotoAsync(Photo image);
-        Task DeletePhoto(Photo image);
+        Task DeletePhotoAsync(Photo image);
         Task<Photo> GetPhotoAsync(Guid id);
         Task<List<Photo>> GetPhotosAsync(string ownerId);
         Task UpdatePhotoAsync(Photo image);

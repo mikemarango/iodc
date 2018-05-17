@@ -40,25 +40,30 @@ namespace PhotoGallery.Api.Services.Repositories
         public async Task AddPhotoAsync(Photo photo)
         {
             context.Photos.Add(photo);
+            await context.SaveChangesAsync();
+
             //context.Entry(photo).State = EntityState.Added;
-            await Task.FromResult(context.SaveChangesAsync());
+            //await Task.FromResult(context.SaveChangesAsync());
         }
 
-        public Task UpdatePhotoAsync(Photo photo)
+        public async Task UpdatePhotoAsync(Photo photo)
         {
-            context.Entry(photo).State = EntityState.Modified;
-            return context.SaveChangesAsync();
+            context.Photos.Update(photo);
+            await context.SaveChangesAsync();
+
+            //context.Entry(photo).State = EntityState.Modified;
+            //await Task.FromResult(context.SaveChangesAsync());
         }
 
-        public Task DeletePhoto(Photo photo)
+        public async Task DeletePhotoAsync(Photo photo)
         {
             context.Photos.Remove(photo);
-            return context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
-        public Task<bool> IsOwnersPhoto(Guid id, string ownerId)
+        public async Task<bool> IsOwnersPhoto(Guid id, string ownerId)
         {
-            return context.Photos.AnyAsync(i => i.Id == id && i.OwnerId == ownerId);
+            return await context.Photos.AnyAsync(i => i.Id == id && i.OwnerId == ownerId);
         }
     }
 }
