@@ -6,8 +6,8 @@ namespace PhotoGallery.Data
 {
     public class ConnectionConfig
     {
-        public string IdentityServer { get; set; }
-        public string WebServer { get; set; }
-        public string ApiServer { get; set; }
+        public string IdentityServerUri { get; set; }
+        public string WebServerUri { get; set; }
+        public string ApiServerUri { get; set; }
     }
 }
