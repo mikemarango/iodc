@@ -107,10 +107,10 @@ namespace PhotoGallery.Web
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             });
-            services.AddHttpClient<DiscoveryClient>(disco =>
-            {
-                disco.BaseAddress = new Uri(Configuration.GetConnectionString("identityServerUri"));
-            });
+            //services.AddHttpClient<DiscoveryClient>(disco =>
+            //{
+            //    disco.BaseAddress = new Uri(Configuration.GetConnectionString("identityServerUri"));
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -19,19 +19,28 @@ namespace PhotoGallery.Web.Services
 {
     public class PhotoService
     {
-        private readonly HttpClient httpClient;
-        private readonly IHttpContextAccessor contextAccessor;
-        private readonly IConfiguration configuration;
+        //private readonly HttpClient httpClient;
+        //private readonly IHttpContextAccessor contextAccessor;
+        //private readonly IConfiguration configuration;
 
         public PhotoService(
-            HttpClient httpClient, 
-            IHttpContextAccessor contextAccessor, 
+            HttpClient http, 
+            IHttpContextAccessor accessor, 
             IConfiguration configuration)
         {
-            this.httpClient = httpClient;
-            this.contextAccessor = contextAccessor;
-            this.configuration = configuration;
+            //this.httpClient = httpClient;
+            //this.contextAccessor = contextAccessor;
+            //this.configuration = configuration;
+            Client = new DiscoveryClient(configuration.GetConnectionString("identityServerUri"));
+            Http = http;
+            Accessor = accessor;
+            Configuration = configuration;
         }
+
+        public DiscoveryClient Client { get; }
+        public HttpClient Http { get; }
+        public IHttpContextAccessor Accessor { get; }
+        public IConfiguration Configuration { get; }
 
 
         #region CRUD Tasks
@@ -88,11 +97,12 @@ namespace PhotoGallery.Web.Services
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task<string> GetAddressAsync(DiscoveryClient discoveryClient)
+        public async Task<string> GetAddressAsync()
         {
-            var metadataResponse = await discoveryClient.GetAsync();
+            //var discoverClient = new DiscoveryClient(configuration.GetConnectionString(""));
+            var metadataResponse = await Client.GetAsync();
             var userInfoClient = new UserInfoClient(metadataResponse.UserInfoEndpoint);
-            var accessToken = await contextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
+            var accessToken = await Accessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
             var response = await userInfoClient.GetAsync(accessToken);
             if (response.IsError)
                 throw new Exception("Problem accressing UserInfo endpoint");
@@ -108,13 +118,13 @@ namespace PhotoGallery.Web.Services
         {
             var accessToken = await GetValidAccessToken();
             if (!string.IsNullOrEmpty(accessToken))
-                httpClient.SetBearerToken(accessToken);
-            return await Task.FromResult(httpClient);
+                Http.SetBearerToken(accessToken);
+            return await Task.FromResult(Http);
         }
 
         private async Task<string> GetValidAccessToken()
         {
-            var currentContext = contextAccessor.HttpContext;
+            var currentContext = Accessor.HttpContext;
             var expiresAtToken = await currentContext.GetTokenAsync("expires_at");
             var expiresAt = string.IsNullOrWhiteSpace(expiresAtToken) ?
                 DateTime.MinValue : DateTime.Parse(expiresAtToken).AddSeconds(-60).ToUniversalTime();
@@ -125,11 +135,11 @@ namespace PhotoGallery.Web.Services
 
         private async Task<string> RenewTokens()
         {
-            var currentContext = contextAccessor.HttpContext;
-            var discoveryClient = new DiscoveryClient(configuration.GetConnectionString("identityServerUri"));
+            var currentContext = Accessor.HttpContext;
+            var discoveryClient = new DiscoveryClient(Configuration.GetConnectionString("identityServerUri"));
             //var discoveryClient = new DiscoveryClient(configuration.GetConnectionString("identityServerUri"));
             var metaDataResponse = await discoveryClient.GetAsync();
-            var tokenClient = new TokenClient(metaDataResponse.TokenEndpoint, configuration["ClientIdOnIdentityServer"], configuration["ClientSecretOnIdentityServer"]);
+            var tokenClient = new TokenClient(metaDataResponse.TokenEndpoint, Configuration["ClientIdOnIdentityServer"], Configuration["ClientSecretOnIdentityServer"]);
             var currentRefreshToken = await currentContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
             var tokenResult = await tokenClient.RequestRefreshTokenAsync(currentRefreshToken);
             if (!tokenResult.IsError)

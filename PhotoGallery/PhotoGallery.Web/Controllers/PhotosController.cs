@@ -158,9 +158,9 @@ namespace PhotoGallery.Web.Controllers
         }
 
         [Authorize(Roles = "PayingUser")]
-        public async Task<IActionResult> Order([FromServices]DiscoveryClient discoveryClient)
+        public async Task<IActionResult> Order()
         {
-            var address = await photoService.GetAddressAsync(discoveryClient);
+            var address = await photoService.GetAddressAsync();
             return View(new OrderPhotoViewModel(address));
         }
 
