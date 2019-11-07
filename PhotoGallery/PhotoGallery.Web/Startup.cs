@@ -104,8 +104,8 @@ namespace PhotoGallery.Web
             services.AddHttpClient<PhotoService>(client =>
             {
                 client.BaseAddress = new Uri(Configuration.GetConnectionString("photosApiUri"));
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                //client.DefaultRequestHeaders.Accept.Clear();
+                //client.DefaultRequestHeaders.Add("Accept", "application/json");
             });
             //services.AddHttpClient<DiscoveryClient>(disco =>
             //{

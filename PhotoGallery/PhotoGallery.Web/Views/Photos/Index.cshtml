@@ -11,7 +11,7 @@
     {
         <div class="col-md-4">
             <div class="thumbnail">
-                <img style="width:100%" src="@("https://localhost:44367/photos/" + photo.FileName)" />
+                <img style="width:100%" src="@($"https://localhost:44367/photos/{photo.FileName}")" />
                 <div class="caption">
                     <div class="h5">@photo.Title</div>
                     <a asp-action="Edit" asp-controller="Photos" asp-route-id="@photo.Id">Edit Title</a> |
