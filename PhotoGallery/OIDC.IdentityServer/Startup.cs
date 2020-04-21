@@ -49,7 +49,7 @@ namespace OIDC.IdentityServer
                 options.Events.RaiseSuccessEvents = true;
             })
             .AddUserStore()
-            .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("oidc")))
+            .AddSigningCredential(LoadCertificateFromStore(Configuration.GetConnectionString("SigningCredentialCertificateThumbPrint")))
             .AddConfigurationStore(options =>
             {
                 options.ConfigureDbContext = context => context
@@ -91,15 +91,15 @@ namespace OIDC.IdentityServer
             //builder.AddInMemoryApiResources(Configuration.GetSection("ApiResources"));
             //builder.AddInMemoryClients(Configuration.GetSection("clients"));
 
-            if (Environment.IsDevelopment())
-            {
-                builder.AddDeveloperSigningCredential();
-            }
+            //if (Environment.IsDevelopment())
+            //{
+            //    builder.AddDeveloperSigningCredential();
+            //}
 
-            else
-            {
-                throw new Exception("need to configure key material");
-            }
+            //else
+            //{
+            //    throw new Exception("need to configure key material");
+            //}
 
             services.AddAuthentication()
                 .AddGoogle(options =>

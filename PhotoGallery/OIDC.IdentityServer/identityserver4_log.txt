@@ -21739,3 +21739,18 @@ System.InvalidOperationException: No service for type 'OIDC.IdentityServer.Data.
    at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
    at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
    at OIDC.IdentityServer.Program.Main(String[] args) in C:\Users\mikem\Source\Repos\iodc\PhotoGallery\OIDC.IdentityServer\Program.cs:line 30
+2020-04-21 19:01:55.304 +03:00 [ERR] An error occured while seeding the database
+System.InvalidOperationException: No service for type 'IdentityServer4.EntityFramework.DbContexts.ConfigurationDbContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at OIDC.IdentityServer.Program.Main(String[] args) in C:\Users\mikem\Source\Repos\iodc\PhotoGallery\OIDC.IdentityServer\Program.cs:line 31
+2020-04-21 19:02:21.337 +03:00 [ERR] An error occured while seeding the database
+System.InvalidOperationException: No service for type 'IdentityServer4.EntityFramework.DbContexts.ConfigurationDbContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at OIDC.IdentityServer.Program.Main(String[] args) in C:\Users\mikem\Source\Repos\iodc\PhotoGallery\OIDC.IdentityServer\Program.cs:line 31
+2020-04-21 19:03:05.038 +03:00 [ERR] An error occured while seeding the database
+System.InvalidOperationException: No service for type 'IdentityServer4.EntityFramework.DbContexts.ConfigurationDbContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at OIDC.IdentityServer.Program.Main(String[] args) in C:\Users\mikem\Source\Repos\iodc\PhotoGallery\OIDC.IdentityServer\Program.cs:line 31
